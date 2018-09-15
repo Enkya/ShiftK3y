@@ -1,8 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
+/**
+ * Styling and file imports
+ */
+import './assets/scss/style.scss';
 import App from './App';
+
+/**
+ * Redux imports
+ */
+// import store from './store';
+
+
+/**
+ * Service workers and caching imports
+ */
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+/**
+ * Routing imports
+ */
+// import Router from './containers/Router';
+
 registerServiceWorker();
+
+const mount = (Component) => {
+  render(
+    <Component />,
+    document.getElementById('root'),
+  );
+};
+
+mount(App);
