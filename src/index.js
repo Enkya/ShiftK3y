@@ -4,7 +4,6 @@ import { render } from 'react-dom';
  * Styling and file imports
  */
 import './assets/scss/style.scss';
-import App from './App';
 
 /**
  * Redux imports
@@ -21,7 +20,7 @@ import registerServiceWorker from './registerServiceWorker';
 /**
  * Routing imports
  */
-// import Router from './containers/Router';
+import Router from './containers/Router';
 
 registerServiceWorker();
 
@@ -32,4 +31,4 @@ const mount = (Component) => {
   );
 };
 
-mount(App);
+mount(Router);
