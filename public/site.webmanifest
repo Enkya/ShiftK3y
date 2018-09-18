@@ -1,0 +1,14 @@
+{
+    "name": "ShiftK3y",
+    "short_name": "ShiftK3y",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#5e7ce2",
+    "background_color": "#5e7ce2",
+    "display": "standalone"
+}
