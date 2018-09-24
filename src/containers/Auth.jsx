@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import logo from '../assets/images/ucclogo.png';
+// import logo from '../assets/images/ucclogo.png';
 import config from '../config';
 
 const authApiUrl = config.AUTH_API;
@@ -62,8 +62,8 @@ class Auth extends Component {
           <header className='signInHeader'>
             <div className='signInPageContent'>
               <div className='logo'>
-                <img className='logo__img' src={logo} alt='UCC logo' />
-                <span className='logo__text'>UCC</span>
+                {/* <img className='logo__img' src={logo} alt='UCC logo' /> */}
+                {/* <span className='logo__text'>UCC</span> */}
               </div>
               <a
                 href={`${authApiUrl}${appUrl}`}
