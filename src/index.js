@@ -1,34 +1,9 @@
-import React from 'react';
-import { render } from 'react-dom';
-/**
- * Styling and file imports
- */
-import './assets/scss/style.scss';
+import { runWithAdal } from 'react-adal';
+import { authContext } from './adal/adalConfig';
 
-/**
- * Redux imports
- */
-// import store from './store';
+const DO_NOT_LOGIN = false;
 
-
-/**
- * Service workers and caching imports
- */
-import registerServiceWorker from './registerServiceWorker';
-
-
-/**
- * Routing imports
- */
-import Router from './containers/Router';
-
-registerServiceWorker();
-
-const mount = (Component) => {
-  render(
-    <Component />,
-    document.getElementById('root'),
-  );
-};
-
-mount(Router);
+runWithAdal(authContext, () => {
+  // eslint-disable-next-line
+  require('./indexApp.js');
+}, DO_NOT_LOGIN);

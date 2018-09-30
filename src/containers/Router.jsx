@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import { wiithAdalLoginPage } from 'react-adal';
 // import PropTypes from 'prop-types';
+
 
 import Auth from './Auth';
 // import NotFoundPage from '../containers/NotFound';
