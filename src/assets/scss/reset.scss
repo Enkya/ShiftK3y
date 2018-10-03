@@ -9,6 +9,12 @@ body {
     margin: 0;
 }
 
+.main-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .noScroll {
     overflow: hidden;
 }
