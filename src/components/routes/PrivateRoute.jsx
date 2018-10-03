@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { hasAllowedRole } from '../../helpers/authentication';
+import hasAllowedRole from '../../helpers/authentication';
 
 /**
  * @name PrivateRoute
