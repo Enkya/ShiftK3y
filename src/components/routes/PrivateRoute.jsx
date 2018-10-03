@@ -13,7 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props => (
-      hasAllowedRole(rest.userRoles, rest.allowedPageRoles)
+      hasAllowedRole(rest.get('userRoles'), rest.get('allowedPageRoles'))
         ? <Component {...props} />
         : <Redirect to='/signin' />
     )}
