@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 /**
  * Styling and file imports
  */
@@ -8,7 +9,7 @@ import './assets/scss/style.scss';
 /**
  * Redux imports
  */
-// import store from './store';
+import store from './store';
 
 
 /**
@@ -26,7 +27,9 @@ registerServiceWorker();
 
 const mount = (Component) => {
   render(
-    <Component />,
+    <Provider store={store}>
+      <Component />
+    </Provider>,
     document.getElementById('root'),
   );
 };

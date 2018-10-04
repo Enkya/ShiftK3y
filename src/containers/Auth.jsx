@@ -3,10 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // import logo from '../assets/images/ucclogo.png';
-import config from '../config';
-
-const authApiUrl = config.AUTH_API;
-const appUrl = config.APP_URL;
+import { authContext } from '../adal/adalConfig';
 
 /**
  * @name Auth
@@ -33,26 +30,8 @@ class Auth extends Component {
       };
     }
 
-
-    componentWillMount() {
-      // retrieve token from cookie
-      // const token = 'getToken()';
-      // const tokenInfo = decodeToken(token);
-      // if (token && tokenIsValid(tokenInfo)) {
-      //     localStorage.removeItem('signInError');
-      //     this.props.history.push('/');
-      // } else {
-      //     localStorage.removeItem('signInError');
-      //     setSignInError();
-      //     // if there is a sign in error go to signin page without error message in url
-      //     this.props.history.push('/');
-      // }
-
-      // if (localStorage.getItem('signInError')) {
-      //     this.setState({
-      //     signInError: true,
-      //     });
-      // }
+    handleClick = () => {
+      authContext().login();
     }
 
     render() {
@@ -65,18 +44,17 @@ class Auth extends Component {
                 {/* <img className='logo__img' src={logo} alt='UCC logo' /> */}
                 {/* <span className='logo__text'>UCC</span> */}
               </div>
-              <a
-                href={`${authApiUrl}${appUrl}`}
+              <button
+                type='button'
                 className='signInButton'
-                role='button'
-                aria-label='Sign in with Google'
-                tabIndex='0'
+                aria-label='Sign in with your microsoft or google account'
+                onClick={this.handleClick}
               >
                 <div className='signInButton__logo' />
                 <span>
-                  Sign in with Google
+                  Sign in with your Microsoft or Google account
                 </span>
-              </a>
+              </button>
             </div>
           </header>
           <main className='signInPageContent signInPageContent--topAlignment'>
