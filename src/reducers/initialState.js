@@ -9,6 +9,10 @@ const initialState = fromJS({
     },
     error: {},
   },
+  pageInfo: {
+    title: 'Home',
+    url: '/',
+  },
 });
 
 export default initialState;
