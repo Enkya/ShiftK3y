@@ -5,7 +5,8 @@
   
 body {
     font-size: 1.6rem;
-    font-family: Roboto, sans-serif;
+    font-family: $font-family;
+    font-weight: $font-weight-heavy;
     margin: 0;
 }
 
