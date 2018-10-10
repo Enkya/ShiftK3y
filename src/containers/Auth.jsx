@@ -30,6 +30,14 @@ class Auth extends Component {
       };
     }
 
+    componentWillMount() {
+      const { history } = this.props;
+      const user = authContext().getCachedUser();
+      if (user) {
+        history.push('/dashboard');
+      }
+    }
+
     handleClick = () => {
       authContext().login();
     }
@@ -46,8 +54,8 @@ class Auth extends Component {
             </div>
             <div className='text-box'>
               <h1 className='heading-primary'>
-                <span className='heading-primary-main'>SHIFTK3Y</span>
-                <span className='heading-primary-sub'>A UCC records management system</span>
+                <span className='heading-primary-main'>IMS</span>
+                {/* <span className='heading-primary-sub'>A UCC records management system</span> */}
               </h1>
               <button
                 type='button'
