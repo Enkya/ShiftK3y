@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import logo from '../assets/images/ucclogo.png';
+// import logo from '../assets/images/ucclogo.png';
 import { authContext } from '../adal/adalConfig';
 
 /**
@@ -46,16 +46,15 @@ class Auth extends Component {
       const { signInError } = this.state;
       return (
         <Fragment>
-          <header className='header'>
-            <div className='brand-box'>
-              <div className='logo'>
-                <img className='logo__img' src={logo} alt='UCC logo' />
-              </div>
+          <div className='brand-box'>
+            <div className='logo'>
+              {/* <img className='logo__img' src={logo} alt='UCC logo' /> */}
             </div>
+          </div>
+          <header className='header'>
             <div className='text-box'>
               <h1 className='heading-primary'>
                 <span className='heading-primary-main'>IMS</span>
-                {/* <span className='heading-primary-sub'>A UCC records management system</span> */}
               </h1>
               <button
                 type='button'
@@ -70,14 +69,20 @@ class Auth extends Component {
               </button>
               {
                 signInError
-                  ? (
-                    <span className='signInError'>
-                      <span className='signInError__message'>You must sign in with your UCC account</span>
-                    </span>
-                  )
-                  : null
               }
             </div>
+            <ul className='bg-bubbles'>
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
+            </ul>
           </header>
         </Fragment>
       );
