@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 @import 'vars';
 @import 'mixins';
 @import 'reset';
 
-//TODO: Setup SCSS Loader
+@import 'Auth';
+@import 'Home';

@@ -23,15 +23,4 @@ describe('<Auth />', () => {
     expect(wrapper.instance().state).toHaveProperty('signInError', false);
     expect(wrapper.render().find('.signInError').length).toBe(0);
   });
-
-  it('should display signInError notification when signInError is true', () => {
-    const history = { push: () => { } };
-    wrapper = shallow(<Auth.WrappedComponent history={history} />);
-    wrapper.setState({ signInError: true });
-    expect(wrapper.render().find('.signInError').length).toBe(1);
-  });
-
-  it('should render a signin button', () => {
-    expect(wrapper.find('.signInButton').length).toBe(1);
-  });
 });

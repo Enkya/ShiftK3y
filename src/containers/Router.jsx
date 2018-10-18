@@ -10,6 +10,7 @@ import pageInfo from '../helpers/pageInfo';
 import PrivateRoute from '../components/routes/PrivateRoute';
 
 import { makeSelectUserProfile } from '../selectors';
+import Home from './Home';
 
 const pages = [...pageInfo.pages];
 
@@ -22,6 +23,7 @@ const Router = ({ profile }) => (
   <BrowserRouter>
     <Switch>
       <Route path='/signin' exact component={Auth} />
+      <Route path='/dashboard' exact component={Home} />
       <Route component={NotFoundPage} />
       {
         pages.map(pageInfoData => (
