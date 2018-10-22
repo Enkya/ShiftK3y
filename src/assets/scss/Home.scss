@@ -1,9 +1,120 @@
+.container {
+  min-height: 100%;
+}
+
+.sidenav {
+  width: 280px;
+  flex: 0 1 auto;
+  display: none;
+}
+
 .dash-container {
   display: flex;
   flex-direction: column;
+  flex: auto;
+  width: 100%;
+  height: 100%;
   
   .top-nav {
     flex: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .logo {
+      min-width: 200px;
+      padding-right: 30px;
+      flex: none;
+
+      .logo-wrapper {
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        .hamburger {
+          flex: none;
+        }
+        .logo-image {
+          flex: auto;
+
+          img {
+            width: 100px;
+            height: 50px;
+          }
+        }
+      }
+    }
+
+    .search {
+      flex: 1 1 100%;
+      justify-content: center;
+      vertical-align: middle;
+      align-items: center;
+      display: flex;
+
+      .search-bar {
+        flex-basis: 100%;
+        max-width: 520px;
+
+        .form {
+          background: rgba(0,0,0,0.04);
+          border: none;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+          position: relative;
+          -webkit-transition: background 100ms ease-in,width 100ms ease-out;
+          transition: background 100ms ease-in,width 100ms ease-out;
+          display: flex;
+
+          .close-search {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0 4px;
+            line-height: 0;
+            flex: none;
+          }
+
+          .search-input {
+            padding: 0;
+            align-items: flex-start;
+            overflow: hidden;
+            white-space: normal;
+            line-height: 2rem;
+            flex: auto;
+            display: flex;
+            flex: auto;
+            align-items: stretch;
+
+            .search-text {
+              box-sizing: border-box;
+              width: 100%;
+            }
+
+            .search-text:nth-of-type(1) {
+              position: absolute;
+              left: 0;
+              background: transparent;
+              opacity: .3;
+              padding: 0 15% 0 6%;
+              height: 100%;
+            }
+          }
+
+          .clear-search {
+            flex: none;
+          }
+
+          .search {
+            flex: none;
+          }
+        }
+      }
+    }
+
+    .control {
+      flex: none;
+    }
   }
 
   .content {
