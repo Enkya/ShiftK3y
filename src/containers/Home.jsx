@@ -20,7 +20,7 @@ import logo from '../assets/images/ucclogo.png';
 
 const Home = () => (
   <div className='container flex-col'>
-    <div className='flex-row full-parent-height'>
+    <div className='flex-row'>
       <div className='clipping' />
       <aside className='sidenav' />
       <main className='dash-container'>
@@ -81,7 +81,7 @@ const Home = () => (
             <div className='controls'>
               <div className='notifications' />
               <div className='username'>
-                <span>Hello, Muheki</span>
+                <span>Hi, Muheki</span>
               </div>
               <div className='dropdown-icon' />
             </div>
@@ -127,6 +127,26 @@ const Home = () => (
           </div>
           <div className='renderview'>
             <div className='linear-view'>
+              <div className='card active'>
+                <div className='avatar'>
+                  <div className='user__image' />
+                </div>
+              </div>
+              <div className='card'>
+                <div className='avatar'>
+                  <div className='user__image' />
+                </div>
+              </div>
+              <div className='card'>
+                <div className='avatar'>
+                  <div className='user__image' />
+                </div>
+              </div>
+              <div className='card'>
+                <div className='avatar'>
+                  <div className='user__image' />
+                </div>
+              </div>
               <div className='card'>
                 <div className='avatar'>
                   <div className='user__image' />
