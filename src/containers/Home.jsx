@@ -9,6 +9,9 @@ import ClearSearchIcon from '../components/icons/ClearSearch';
 import CloseSearchIcon from '../components/icons/CloseSearch';
 import SearchIcon from '../components/icons/Search';
 
+// logo
+import logo from '../assets/images/ucclogo.png';
+
 /**
  * @name Dashboard
  * @summary renders Home component
@@ -16,19 +19,15 @@ import SearchIcon from '../components/icons/Search';
  */
 
 const Home = () => (
-  <div className='container'>
-    <aside>
-      side content
-    </aside>
-    <main className='dash-container'>
-      <div className='top-nav'>
-        <div className='col-wrapper'>
+  <div className='container flex-col'>
+    <div className='flex-row'>
+      <aside className='sidenav' />
+      <main className='dash-container'>
+        <div className='top-nav'>
           <div className='logo left'>
-            <div className='row-wrapper'>
-              <div className='logo-wrapper'>
-                <div className='hamburger' />
-                <div className='logo-image' />
-              </div>
+            <div className='logo-wrapper'>
+              <div className='hamburger' />
+              <div className='logo-image'><img src={logo} alt='logo' /></div>
             </div>
           </div>
           <div className='search'>
@@ -41,15 +40,26 @@ const Home = () => (
                   className='icon close-search'
                   onClick={() => {}}
                 />
-                <input
-                  type='text'
-                  className='search-input'
-                  autoComplete='off'
-                  aria-label='search'
-                  aria-autocomplete='list'
-                  aria-haspopup='true'
-                  onClick={() => {}}
-                />
+                <div className='search-input'>
+                  <input
+                    type='text'
+                    className='search-text'
+                    value='Search for companies, licenses and categories'
+                    disabled
+                    aria-hidden
+                    onClick={() => {}}
+                  />
+                  <input
+                    type='text'
+                    className='search-text'
+                    autoComplete='off'
+                    aria-label='search'
+                    aria-autocomplete='list'
+                    aria-haspopup='true'
+                    value='test'
+                    onClick={() => {}}
+                  />
+                </div>
                 <Button
                   name='clearSearch'
                   aria-label='Clear Search'
@@ -77,52 +87,56 @@ const Home = () => (
             </div>
           </div>
         </div>
-      </div>
-      <div className='content'>
-        <div className='content__header'>
-          <div className='page__title'>
-            <h2>
+        <div className='content'>
+          <div className='content__header row-wrapper'>
+            <div className='page__title'>
               Licensing
-            </h2>
-          </div>
-          <div className='sorter'>
-            <div className='toggle btn__small'>Category</div>
-            <div className='toggle btn__small'>Status</div>
-            <div className='toggle btn__small'>Order By</div>
-          </div>
-          <div className='entrycounter'>
-            <span>Showing</span>
-            <div className='entrycounter__selector'>
-              <a href='/' className='dropdown'>
-                <span className='entry__number'>25</span>
-                <div className='icon__small'>
-                  <span className='icon down' />
-                </div>
-              </a>
             </div>
-            <div>of</div>
-            <span className='entry__number'>3000</span>
-            <span>entries</span>
+            <div className='sorter sub'>
+              <div className='toggle btn__small'>Order By</div>
+              <div className='toggle btn__small'>Status</div>
+              <div className='toggle btn__small'>Category</div>
+            </div>
+            <div className='entrycounter sub'>
+              <span>Showing</span>
+              <div className='entrycounter__selector'>
+                <a href='/' className='dropdown'>
+                  <span className='entry__number'>25</span>
+                  <div className='icon__small'>
+                    <span className='icon down' />
+                  </div>
+                </a>
+              </div>
+              <div>of</div>
+              <span className='entry__number'>3000</span>
+              <span>entries</span>
+            </div>
+            <div className='viewmode__icons'>
+              <div className='gridview icon' />
+              <div className='listview icon' />
+            </div>
+            <div className='cta'>
+              <Button
+                name='Create'
+                aria-label='Create button'
+                value='Create'
+                className='btn__large blue'
+                onClick={() => {}}
+              />
+            </div>
           </div>
-          <div className='viewmode__icons'>
-            <div className='gridview icon' />
-            <div className='listview icon' />
-          </div>
-          <div className='cta'>
-            <div className='btn__large blue' />
-          </div>
-        </div>
-        <div className='renderview'>
-          <div className='linear-view'>
-            <div className='card'>
-              <div className='avatar'>
-                <div className='user__image' />
+          <div className='renderview'>
+            <div className='linear-view'>
+              <div className='card'>
+                <div className='avatar'>
+                  <div className='user__image' />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
 );
 

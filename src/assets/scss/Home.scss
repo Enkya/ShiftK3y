@@ -1,12 +1,225 @@
+.container {
+  min-height: 100%;
+}
+
+.sidenav {
+  width: 280px;
+  flex: 0 1 auto;
+  display: none;
+}
+
 .dash-container {
   display: flex;
   flex-direction: column;
+  flex: auto;
+  width: 100%;
+  height: 100%;
+  padding: 2% 4% 1% 3%;
   
   .top-nav {
     flex: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .logo {
+      min-width: 200px;
+      padding-right: 30px;
+      flex: none;
+
+      .logo-wrapper {
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        .hamburger {
+          flex: none;
+        }
+        .logo-image {
+          flex: auto;
+
+          img {
+            width: 100px;
+            height: 50px;
+          }
+        }
+      }
+    }
+
+    .search {
+      flex: 1 1 100%;
+      justify-content: center;
+      vertical-align: middle;
+      align-items: center;
+      display: flex;
+
+      .search-bar {
+        flex-basis: 100%;
+        max-width: 520px;
+
+        .form {
+          background: rgba(0,0,0,0.04);
+          border: none;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+          position: relative;
+          -webkit-transition: background 100ms ease-in,width 100ms ease-out;
+          transition: background 100ms ease-in,width 100ms ease-out;
+          display: flex;
+          cursor: text;
+
+          .close-search {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0 4px;
+            line-height: 0;
+            flex: none;
+          }
+
+          .search-input {
+            padding: 0;
+            align-items: flex-start;
+            overflow: hidden;
+            white-space: normal;
+            line-height: 2rem;
+            flex: auto;
+            display: flex;
+            flex: auto;
+            align-items: stretch;
+
+            .search-text {
+              box-sizing: border-box;
+              width: 100%;
+            }
+
+            .search-text:nth-of-type(1) {
+              position: absolute;
+              left: 0;
+              background: transparent;
+              opacity: .3;
+              padding: 0 15% 0 6%;
+              height: 100%;
+            }
+          }
+
+          .clear-search {
+            flex: none;
+          }
+
+          .search {
+            flex: none;
+          }
+        }
+      }
+    }
+
+    .control {
+      flex: none;
+      cursor: pointer;
+
+      .controls {
+        display: flex;
+
+        .notifications {
+          flex: none;
+        }
+        .username {
+          flex: auto;
+          overflow: hidden;
+          display: flex;
+          justify-content: flex-end;
+
+          :last-child{
+            flex: none;
+          }
+        }
+      }
+    }
   }
 
   .content {
     flex: auto;
+    display: grid;
+    // grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: [colstart] minmax(1.2rem, 1fr) repeat(10, 1fr) [colend] minmax(1.2rem, 2%);
+    grid-template-rows: auto auto;
+    grid-gap: 16px 32px;
+    margin: 3%;
+
+    .content__header {
+      grid-column: 2 / span 10;
+      grid-row: 1;
+      display: grid;
+      align-items: end;
+
+      .page__title {
+        grid-column: 1 / span 3;
+        font-size: 3rem;
+        color: $primary;
+      }
+
+      .sorter {
+        grid-column: 4 / span 3;
+        align-items: center;
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        box-sizing: border-box;
+        cursor: pointer;
+        
+        *::before {
+          content: '|';
+          padding: 2rem;
+        }
+        :last-child::before {
+          content: '';
+        }
+      }
+
+      .entrycounter {
+        grid-column: 8 / span 2;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        >* {
+          margin: 0 .3rem;
+          cursor: pointer;
+        }
+
+        .entrycounter__selector {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+
+          .dropdown {
+            display: flex;
+
+            :last-child {
+              width: 1rem;
+            }
+          }
+        }
+      }
+
+      .viewmode__icons {
+        grid-column: 10 / span 1;
+        display: flex;
+        > div {
+          height: 100%;
+        }
+      }
+      .cta {
+        grid-column: 11;
+        justify-self:  stretch;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .renderview {
+      grid-column: span 12;
+      grid-row: 2;
+    }
   }
 }
