@@ -10,3 +10,10 @@ $primary-linear-gradient: linear-gradient(to right bottom,
 #92b4f4ee,
 #0a369dee),
 $cover-url;
+$background-linear-gradient: linear-gradient(to top,
+rgba(146, 180, 244, 0.205) 0%,
+rgba(255,255,255,.6) 100%);
+$mask-gradient: linear-gradient(to bottom right,
+rgba(164, 206, 255, 0.8) 0%,
+rgba(191, 220, 240, 0.7) 30%,
+rgba(207, 227, 231, .6) 100%);

@@ -20,7 +20,8 @@ import logo from '../assets/images/ucclogo.png';
 
 const Home = () => (
   <div className='container flex-col'>
-    <div className='flex-row'>
+    <div className='flex-row full-parent-height'>
+      <div className='clipping' />
       <aside className='sidenav' />
       <main className='dash-container'>
         <div className='top-nav'>
@@ -43,8 +44,8 @@ const Home = () => (
                 <div className='search-input'>
                   <input
                     type='text'
-                    className='search-text'
-                    value='Search for companies, licenses and categories'
+                    className='search-text avoid-clicks'
+                    value='Search for companies, licenses and categories avoid-clicks'
                     disabled
                     aria-hidden
                     onClick={() => {}}
@@ -56,7 +57,6 @@ const Home = () => (
                     aria-label='search'
                     aria-autocomplete='list'
                     aria-haspopup='true'
-                    value='test'
                     onClick={() => {}}
                   />
                 </div>
