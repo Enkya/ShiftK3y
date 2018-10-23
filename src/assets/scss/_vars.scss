@@ -1,7 +1,7 @@
 $primary: #0a369d;
 $highlight: #92b4f4;
 $action-primary: #5e7ce2;
-$background-highlight: #a4cfff;
+$background-highlight: rgb(164, 207, 255);
 $sub: rgba(0, 0, 0, 0.5);
 $font-family: 'Lato', sans-serif;
 $font-weight-heavy: 400;
@@ -14,6 +14,6 @@ $background-linear-gradient: linear-gradient(to top,
 rgba(146, 180, 244, 0.205) 0%,
 rgba(255,255,255,.6) 100%);
 $mask-gradient: linear-gradient(to bottom right,
-rgba(164, 206, 255, 0.8) 0%,
-rgba(191, 220, 240, 0.7) 30%,
-rgba(207, 227, 231, .6) 100%);
+rgba(164, 206, 255, 0.3) 0%,
+rgba(191, 220, 240, 0.5) 30%,
+rgba(207, 227, 231, .1) 100%);
