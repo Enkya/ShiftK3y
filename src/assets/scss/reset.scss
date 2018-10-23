@@ -21,17 +21,13 @@ body {
 
 .flex-col {
     display: flex;
-    flex: column nowrap;
+    flex-flow: column nowrap;
 }
 
 .flex-row {
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
-}
-
-* {
-    border: 1px Solid #eee;
 }
 
 .col-wrapper {
@@ -61,4 +57,24 @@ body {
 
 .row-wrapper {
     display: flex;
+}
+
+.full-height{
+    height: 100vh;
+}
+
+.btn__large {
+    border-radius:  .5rem;
+    padding: 1rem 4rem;
+    cursor: pointer;
+    background: $action-primary;
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.sub {
+    color: $sub;
+    font-size: 1.4rem;
+    font-weight: 800;
 }

@@ -90,16 +90,14 @@ const Home = () => (
         <div className='content'>
           <div className='content__header row-wrapper'>
             <div className='page__title'>
-              <h2>
-                Licensing
-              </h2>
+              Licensing
             </div>
-            <div className='sorter'>
-              <div className='toggle btn__small'>Category</div>
-              <div className='toggle btn__small'>Status</div>
+            <div className='sorter sub'>
               <div className='toggle btn__small'>Order By</div>
+              <div className='toggle btn__small'>Status</div>
+              <div className='toggle btn__small'>Category</div>
             </div>
-            <div className='entrycounter'>
+            <div className='entrycounter sub'>
               <span>Showing</span>
               <div className='entrycounter__selector'>
                 <a href='/' className='dropdown'>
@@ -118,7 +116,13 @@ const Home = () => (
               <div className='listview icon' />
             </div>
             <div className='cta'>
-              <div className='btn__large blue' />
+              <Button
+                name='Create'
+                aria-label='Create button'
+                value='Create'
+                className='btn__large blue'
+                onClick={() => {}}
+              />
             </div>
           </div>
           <div className='renderview'>
