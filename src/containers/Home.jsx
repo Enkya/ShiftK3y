@@ -5,8 +5,6 @@ import { withRouter } from 'react-router-dom';
 import Button from '../common/Button';
 
 // icons
-import ClearSearchIcon from '../components/icons/ClearSearch';
-import CloseSearchIcon from '../components/icons/CloseSearch';
 import SearchIcon from '../components/icons/Search';
 
 // logo
@@ -34,22 +32,8 @@ const Home = () => (
           <div className='search'>
             <div className='search-bar'>
               <form className='form'>
-                <Button
-                  name='closeSearch'
-                  aria-label='Close Search'
-                  value={<CloseSearchIcon />}
-                  className='icon close-search'
-                  onClick={() => {}}
-                />
                 <div className='search-input'>
-                  <input
-                    type='text'
-                    className='search-text avoid-clicks'
-                    value='Search for companies, licenses and categories avoid-clicks'
-                    disabled
-                    aria-hidden
-                    onClick={() => {}}
-                  />
+                  <SearchIcon />
                   <input
                     type='text'
                     className='search-text'
@@ -57,23 +41,11 @@ const Home = () => (
                     aria-label='search'
                     aria-autocomplete='list'
                     aria-haspopup='true'
+                    placeholder='Search for something...'
                     onClick={() => {}}
+                    maxLength='512'
                   />
                 </div>
-                <Button
-                  name='clearSearch'
-                  aria-label='Clear Search'
-                  value={<ClearSearchIcon />}
-                  className='icon clear-search'
-                  onClick={() => {}}
-                />
-                <Button
-                  name='Search'
-                  aria-label='Search button'
-                  value={<SearchIcon />}
-                  className='icon search'
-                  onClick={() => {}}
-                />
               </form>
             </div>
           </div>
@@ -93,9 +65,12 @@ const Home = () => (
               Licensing
             </div>
             <div className='sorter sub'>
-              <div className='toggle btn__small'>Order By</div>
               <div className='toggle btn__small'>Status</div>
+              <div className='toggle btn__small'>Resource</div>
+              <div className='toggle btn__small'>Coverage</div>
               <div className='toggle btn__small'>Category</div>
+              <div className='toggle btn__small'>Licensee</div>
+              <div className='toggle btn__small'>Date </div>
             </div>
             <div className='entrycounter sub'>
               <span>Showing</span>
@@ -125,7 +100,7 @@ const Home = () => (
               />
             </div>
           </div>
-          <div className='renderview'>
+          <article className='renderview'>
             <div className='linear-view'>
               <div className='card active'>
                 <div className='avatar'>
@@ -152,8 +127,13 @@ const Home = () => (
                   <div className='user__image' />
                 </div>
               </div>
+              <div className='loader' />
             </div>
-          </div>
+          </article>
+          <aside className='personal_actions'>
+            <div className='notifications' />
+            <div className='graphs' />
+          </aside>
         </div>
       </main>
     </div>

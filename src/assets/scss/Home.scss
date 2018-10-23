@@ -9,7 +9,7 @@
 
 .clipping {
   position: absolute;
-  width:50%;
+  width:80%;
   background: $mask-gradient;
   top: 0;
   bottom: 0;
@@ -166,24 +166,28 @@
     .content__header {
       grid-column: 2 / span 10;
       grid-row: 1;
-      display: grid;
+      display: flex;
       grid-template-columns: repeat(12, 1fr);
-      align-items: end;
+      align-items: baseline;
+      justify-content: flex-end;
+
+      > div {
+        margin-left: 1%;
+      }
 
       .page__title {
-        grid-column: 1 / span 3;
         font-size: 3rem;
         color: $primary;
       }
 
       .sorter {
-        grid-column: 4 / span 4;
         align-items: center;
         display: flex;
+        flex: auto;
         flex-flow: row-reverse nowrap;
         box-sizing: border-box;
         cursor: pointer;
-        justify-content: stretch;
+        justify-content: center;
         
         *::before {
           content: '|';
@@ -195,8 +199,8 @@
       }
 
       .entrycounter {
-        grid-column: 9 / span 2;
         display: flex;
+        flex-grow: 0;
         justify-content: flex-end;
         align-items: center;
 
@@ -221,14 +225,14 @@
       }
 
       .viewmode__icons {
-        grid-column: 11 / span 1;
         display: flex;
+        flex: none;
         > div {
           height: 100%;
         }
       }
       .cta {
-        grid-column: 12;
+        flex: none;
         justify-self:  stretch;
         display: flex;
         justify-content: flex-end;
@@ -236,17 +240,40 @@
     }
 
     .renderview {
-      grid-column: 2 / span 10;
+      grid-column: 2 / span 8;
       grid-row: 3 / -1;
       overflow-y: scroll;
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
 
       .linear-view {
+        grid-column: 2 /span 15;
         display: flex;
         flex-flow: column wrap;
         width: 100%;
       }
     }
 
+    .personal_actions {
+      grid-column: 10 / span 3;
+      grid-row: 3 / span 4;
+      padding-top: 4%;
+      display: grid;
+      grid-gap: 1.6rem 0;
+      grid-template-rows: 60% 40%;
 
+      > div {
+        border-radius: .8rem;
+        background: rgba(189, 199, 230, 0.2);
+      }
+
+      .notifications {
+        grid-column: span 12;
+        grid-row: 1;
+      }
+      .graphs {
+        grid-column: span 12;
+      }
+    }
   }
 }
