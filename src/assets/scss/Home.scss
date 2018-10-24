@@ -39,8 +39,7 @@
     align-items: center;
 
     .logo {
-      min-width: 200px;
-      padding-right: 30px;
+      padding-right: 3rem;
       flex: none;
 
       .logo-wrapper {
@@ -82,16 +81,7 @@
           transition: background 100ms ease-in,width 100ms ease-out;
           display: flex;
           cursor: text;
-
-          .close-search {
-            background: none;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            padding: 0 4px;
-            line-height: 0;
-            flex: none;
-          }
+          padding: 1rem;
 
           .search-input {
             padding: 0;
@@ -107,24 +97,15 @@
             .search-text {
               box-sizing: border-box;
               width: 100%;
-            }
-
-            .search-text:nth-of-type(1) {
-              position: absolute;
-              left: 0;
               background: transparent;
-              opacity: .3;
-              padding: 0 15% 0 6%;
               height: 100%;
+              border: none;
+              font-size: 1.5rem;
+
+              &:focus {
+                outline: none;
+              }
             }
-          }
-
-          .clear-search {
-            flex: none;
-          }
-
-          .search {
-            flex: none;
           }
         }
       }
@@ -256,15 +237,16 @@
 
     .personal_actions {
       grid-column: 10 / span 3;
-      grid-row: 3 / span 4;
-      padding-top: 4%;
+      grid-row: 3 / -1;
+      padding: 4% 1%;
       display: grid;
       grid-gap: 1.6rem 0;
       grid-template-rows: 60% 40%;
+      margin-bottom: 30%;
 
       > div {
         border-radius: .8rem;
-        background: rgba(189, 199, 230, 0.2);
+        background: #bdc7e633;
       }
 
       .notifications {
