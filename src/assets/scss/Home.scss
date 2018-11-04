@@ -294,7 +294,7 @@
     grid-template-rows: auto auto;
     grid-template-areas: "title actions"
                          "details details";
-    border: 1px Solid #eee;
+    border: .1rem dashed #b6b6b6;
     grid-row-gap: 2.8rem;
     padding: 1rem;
     border-radius: .8rem;
@@ -309,10 +309,10 @@
       
       &:after {
         content: '';
-        width: 7rem;
+        width: 5rem;
         background: $action-primary;
         position: absolute;
-        left: 0;
+        left: .4rem;
         bottom: -1rem;
         border-bottom: .3rem Solid $action-primary;
         box-sizing: border-box;
