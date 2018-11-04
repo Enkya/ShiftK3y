@@ -303,13 +303,16 @@
       grid-area: title;
       padding: .2rem 0 .3rem 0;
       position: relative;
-      // margin-bottom: 2.8rem;
+      position: -webkit-sticky;
+      position: sticky;
+      background-color: #fff;
+      top: -.1rem;
       cursor: default;
       color: $action-primary;
       
       &:after {
         content: '';
-        width: 5rem;
+        width: 4rem;
         background: $action-primary;
         position: absolute;
         left: .4rem;
