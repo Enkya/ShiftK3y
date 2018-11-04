@@ -228,9 +228,14 @@ const Home = () => (
                             Service Authorized
                           </label>
                           <select name='authService' className='value' id='authService'>
-                            <option value='KHz'>KHz</option>
-                            <option value='MHz'>MHz</option>
-                            <option value='GHz'>GHz</option>
+                            <option value='Fm Broadcasting'>FM Broadcasting</option>
+                            <option value='DAB'>DAB</option>
+                            <option value='Digital'>Digital TV</option>
+                            <option value='Mobile Telephony (2G)'>Mobile Telephony (2G)</option>
+                            <option value='Mobile Telephony (3G)'>Mobile Telephony (3G)</option>
+                            <option value='Mobile Telephony (LTE)'>Mobile Telephony (LTE)</option>
+                            <option value='Microwave'>Microwave</option>
+                            <option value='Two way radio'>Two way Radio</option>
                           </select>
                         </div>
                         <div className='modulation'>
@@ -238,17 +243,85 @@ const Home = () => (
                             Modulation Permitted
                           </label>
                           <select name='modulationPermitted' className='value' id='modulationPermitted'>
-                            <option value='KHz'>KHz</option>
-                            <option value='MHz'>MHz</option>
-                            <option value='GHz'>GHz</option>
+                            <option value='Choice 1'>Choice 1</option>
+                            <option value='Choice 2'>Choice 2</option>
+                            <option value='Choice 3'>Choice 3</option>
                           </select>
                         </div>
                         { /* eslint-disable enable */}
                         <div className='transPower'>
                           <label htmlFor='transPower'>
-                            Assigned Transmission Power
+                            Assigned Transmission Power (Watts)
                           </label>
-                          <input type='text' id='transPower' />
+                          <input type='number' id='transPower' />
+                        </div>
+                        <div className='antennaeGain'>
+                          <label htmlFor='antennaeGain'>
+                            Authorized Antennae Gain (dB)
+                          </label>
+                          <input type='number' id='antennaeGain' />
+                        </div>
+                        <div className='antennaeHeight'>
+                          <label htmlFor='antennaeHeight'>
+                            Authorized Antennae Height (m)
+                          </label>
+                          <input type='number' id='antennaeHeight' />
+                        </div>
+                        <div className='transmitLocation'>
+                          <label htmlFor='transmitLocation'>
+                            Authorized Transmit Location
+                          </label>
+                          <input type='text' id='transmitLocation' />
+                        </div>
+                        <div className='stlFrequency'>
+                          <label htmlFor='stlFrequency'>
+                            Assigned STL Frequency (KHz, MHz, GHz)
+                          </label>
+                          <input type='number' id='stlFrequency' />
+                        </div>
+                        <div className='stlPower'>
+                          <label htmlFor='stlPower'>
+                            Assigned STL Power (Watts)
+                          </label>
+                          <input type='number' id='stlPower' />
+                        </div>
+                        <div className='stlLocation'>
+                          <label htmlFor='stlLocation'>
+                            Assigned STL Location
+                          </label>
+                          <input type='number' id='stlLocation' />
+                        </div>
+                        <div className='txAssignDate'>
+                          <label htmlFor='txAssignDate'>
+                            TX Freq. Assignment Date
+                          </label>
+                          <input type='date' id='txAssignDate' />
+                        </div>
+                        <div className='stlAssignDate'>
+                          <label htmlFor='stlAssignDate'>
+                            STL Freq. Assignment Date
+                          </label>
+                          <input type='date' id='stlAssignDate' />
+                        </div>
+                        <div className='assignedBy'>
+                          <label htmlFor='assignedBy'>
+                            Assigned By
+                          </label>
+                          <input type='text' id='assignedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='assignedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='authorizedBy'>
+                          <label htmlFor='authorizedBy'>
+                            Authorized By
+                          </label>
+                          <input type='text' id='authorizedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='authorizedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='fullReport'>
+                          <label htmlFor='fullReport'>
+                            Full Report
+                          </label>
+                          <input type='file' id='fullReport' />
                         </div>
                       </div>
                     </div>
