@@ -103,10 +103,157 @@ const Home = () => (
           <article className='renderview'>
             <div className='linear-view'>
               <div className='card active'>
-                Hold down card to preview more details
-                <div className='avatar'>
-                  <div className='user__image' />
-                </div>
+                <form className='form-container'>
+                  <div className='search'>
+                    <div className='search-bar'>
+                      <div className='form'>
+                        <div className='search-input'>
+                          <SearchIcon />
+                          <input
+                            type='text'
+                            className='search-text'
+                            autoComplete='off'
+                            aria-label='search'
+                            aria-autocomplete='list'
+                            aria-haspopup='true'
+                            placeholder='Find Company'
+                            onClick={() => {}}
+                            maxLength='512'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='sections'>
+                    <div className='company section'>
+                      <div className='title'>
+                        <span>Company Details</span>
+                      </div>
+                      <div className='actions'>
+                        <button type='button' className='edit'>Edit</button>
+                      </div>
+                      <div className='details'>
+                        <div className='name'>
+                          <label htmlFor='name'>
+                            Name
+                            <input id='name' type='text' className='value' value='Enkya Inc' />
+                          </label>
+                        </div>
+                        <div className='location'>
+                          <div className='section-header'>Location</div>
+                          <div className='district'>
+                            <label htmlFor='district'>
+                              District
+                              <input id='district' className='value' type='text' value='Wakiso' />
+                            </label>
+                          </div>
+                          <div className='postal'>
+                            <label htmlFor='postal'>
+                              Postal
+                              <input id='postal' className='value' type='number' value='54547' />
+                            </label>
+                          </div>
+                          <div className='country'>
+                            <label htmlFor='country'>
+                              Country
+                              <input id='country' className='value' type='text' value='Uganda' />
+                            </label>
+                          </div>
+                        </div>
+                        <div className='technical_contact'>
+                          <div className='section-header'>Technical Contact Person</div>
+                          <div className='tech_name'>
+                            <label htmlFor='tech_person_name'>
+                              Name
+                              <input type='text' className='value' id='tech_person_name' value='Bruce Bigirwenkya' />
+                            </label>
+                          </div>
+                          <div className='tech_person_email'>
+                            <label htmlFor='tech_person_email'>
+                              Email
+                              <input type='email' className='value' id='tech_person_email' value='test@gmail.com' />
+                            </label>
+                          </div>
+                        </div>
+                        <div className='address'>
+                          <div className='section-header'>Address</div>
+                          <div className='address1'>
+                            <label htmlFor='address1'>
+                              Address Line 1
+                              <input id='address1' className='value' type='text' value='Juuko Lane' />
+                            </label>
+                          </div>
+                          <div className='address2'>
+                            <label htmlFor='address2'>
+                              Address Line 2
+                              <input id='address2' className='value' type='text' value='' />
+                            </label>
+                          </div>
+                        </div>
+                        <div className='legal_contact'>
+                          <div className='section-header'>Legal Contact Person</div>
+                          <div className='legal_name'>
+                            <label htmlFor='legal_person_name'>
+                              Name
+                              <input type='text' className='value' id='legal_person_name' value='Bruce Bigirwenkya' />
+                            </label>
+                          </div>
+                          <div className='legal_email'>
+                            <label htmlFor='legal_person_email'>
+                              Email
+                              <input type='email' className='value' id='legal_person_email' value='test@gmail.com' />
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='Spectrum section'>
+                      <div className='title'>
+                        <span>Spectrum</span>
+                      </div>
+                      <div className='details'>
+                        <div className='band'>
+                          { /* eslint-disable */ }
+                          <label htmlFor='operationband'>
+                            Band of Operation
+                          </label>
+                          <select name='operationband' id='operationband'>
+                            <option value='KHz'>KHz</option>
+                            <option value='MHz'>MHz</option>
+                            <option value='GHz'>GHz</option>
+                          </select>
+                        </div>
+                        <div className='service'>
+                          <label htmlFor='authService'>
+                            Service Authorized
+                          </label>
+                          <select name='authService' className='value' id='authService'>
+                            <option value='KHz'>KHz</option>
+                            <option value='MHz'>MHz</option>
+                            <option value='GHz'>GHz</option>
+                          </select>
+                        </div>
+                        <div className='modulation'>
+                          <label htmlFor='modulationPermitted'>
+                            Modulation Permitted
+                          </label>
+                          <select name='modulationPermitted' className='value' id='modulationPermitted'>
+                            <option value='KHz'>KHz</option>
+                            <option value='MHz'>MHz</option>
+                            <option value='GHz'>GHz</option>
+                          </select>
+                        </div>
+                        { /* eslint-disable enable */}
+                        <div className='transPower'>
+                          <label htmlFor='transPower'>
+                            Assigned Transmission Power
+                          </label>
+                          <input type='text' id='transPower' />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
               <div className='card'>
                 <div className='avatar'>

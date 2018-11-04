@@ -259,3 +259,130 @@
     }
   }
 }
+
+.form-container {
+  display: grid;
+  grid-template-areas: "search"
+                       "sections";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  margin: .5rem;
+  grid-row-gap: .5rem;
+  align-items: center;
+  color: rgba(0,0,0,0.5);
+
+  .search {
+    grid-area: search;
+    justify-self: center;
+    width: 65%;
+    margin: 1rem auto;
+    border-bottom: .2rem Solid $action-primary;
+  }
+}
+
+.sections {
+  grid-area: sections;
+  display: grid;
+  grid-gap: 1rem ;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  
+  .section {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title actions"
+                         "details details";
+    border: 1px Solid #eee;
+    grid-row-gap: 2.8rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    
+    .title {
+      grid-area: title;
+      padding: .2rem 0 .3rem 0;
+      position: relative;
+      // margin-bottom: 2.8rem;
+      cursor: default;
+      color: $action-primary;
+      
+      &:after {
+        content: '';
+        width: 7rem;
+        background: $action-primary;
+        position: absolute;
+        left: 0;
+        bottom: -1rem;
+        border-bottom: .3rem Solid $action-primary;
+        box-sizing: border-box;
+        box-shadow: 0 .2rem 1rem $action-primary;
+        border-radius: 8rem;
+      }
+    }
+    
+    .actions {
+      grid-area: actions;
+      place-self: end;
+    }
+    
+    .details {
+      grid-area: details;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, auto);
+      justify-items: start;
+      grid-gap: .5rem;
+      padding: 0 3%;
+      // margin: 1rem;
+      
+      & > div {
+        
+        & > div {
+          padding: 0 2rem;
+        }
+        
+        .section-header {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.company {
+  .name{
+    grid-area: 1 / 1 / span 1 / span 6; 
+  }
+  .location {
+    grid-area: 2 / 1 / span 1 / span 6; 
+  }
+  .technical_contact {
+    grid-area: 3 / 1 / span 1 / span 6; 
+  }
+  .address {
+    grid-area: 2 / 7 / span 1 / span 6; 
+  }
+  .legal_contact {
+    grid-area: 3 / 7 / span 1 / span 6; 
+  }
+}
+
+.Spectrum {
+  .band {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+  }
+  .service {
+    grid-column: 1 / span 6;
+    grid-row: 2;
+  }
+  .modulation {
+    grid-column: 1 / span 6;
+    grid-row: 3;
+  }
+  .transPower {
+    grid-column: 1 / span 6;
+    grid-row: 4;
+  }
+}
