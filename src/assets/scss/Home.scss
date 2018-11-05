@@ -39,8 +39,7 @@
     align-items: center;
 
     .logo {
-      min-width: 200px;
-      padding-right: 30px;
+      padding-right: 3rem;
       flex: none;
 
       .logo-wrapper {
@@ -82,16 +81,7 @@
           transition: background 100ms ease-in,width 100ms ease-out;
           display: flex;
           cursor: text;
-
-          .close-search {
-            background: none;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            padding: 0 4px;
-            line-height: 0;
-            flex: none;
-          }
+          padding: 1rem;
 
           .search-input {
             padding: 0;
@@ -107,24 +97,15 @@
             .search-text {
               box-sizing: border-box;
               width: 100%;
-            }
-
-            .search-text:nth-of-type(1) {
-              position: absolute;
-              left: 0;
               background: transparent;
-              opacity: .3;
-              padding: 0 15% 0 6%;
               height: 100%;
+              border: none;
+              font-size: 1.5rem;
+
+              &:focus {
+                outline: none;
+              }
             }
-          }
-
-          .clear-search {
-            flex: none;
-          }
-
-          .search {
-            flex: none;
           }
         }
       }
@@ -256,15 +237,16 @@
 
     .personal_actions {
       grid-column: 10 / span 3;
-      grid-row: 3 / span 4;
-      padding-top: 4%;
+      grid-row: 3 / -1;
+      padding: 4% 1%;
       display: grid;
       grid-gap: 1.6rem 0;
       grid-template-rows: 60% 40%;
+      margin-bottom: 30%;
 
       > div {
         border-radius: .8rem;
-        background: rgba(189, 199, 230, 0.2);
+        background: #bdc7e633;
       }
 
       .notifications {
@@ -275,5 +257,132 @@
         grid-column: span 12;
       }
     }
+  }
+}
+
+.form-container {
+  display: grid;
+  grid-template-areas: "search"
+                       "sections";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  margin: .5rem;
+  grid-row-gap: .5rem;
+  align-items: center;
+  color: rgba(0,0,0,0.5);
+
+  .search {
+    grid-area: search;
+    justify-self: center;
+    width: 65%;
+    margin: 1rem auto;
+    border-bottom: .2rem Solid $action-primary;
+  }
+}
+
+.sections {
+  grid-area: sections;
+  display: grid;
+  grid-gap: 1rem ;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  
+  .section {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title actions"
+                         "details details";
+    border: .1rem dashed #b6b6b6;
+    grid-row-gap: 2.8rem;
+    padding: 1rem;
+    border-radius: .8rem;
+    
+    .title {
+      grid-area: title;
+      padding: .2rem 0 .3rem 0;
+      position: relative;
+      // margin-bottom: 2.8rem;
+      cursor: default;
+      color: $action-primary;
+      
+      &:after {
+        content: '';
+        width: 5rem;
+        background: $action-primary;
+        position: absolute;
+        left: .4rem;
+        bottom: -1rem;
+        border-bottom: .3rem Solid $action-primary;
+        box-sizing: border-box;
+        box-shadow: 0 .2rem 1rem $action-primary;
+        border-radius: 8rem;
+      }
+    }
+    
+    .actions {
+      grid-area: actions;
+      place-self: end;
+    }
+    
+    .details {
+      grid-area: details;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, auto);
+      justify-items: start;
+      grid-gap: .5rem;
+      padding: 0 3%;
+      // margin: 1rem;
+      
+      & > div {
+        
+        & > div {
+          padding: 0 2rem;
+        }
+        
+        .section-header {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.company {
+  .name{
+    grid-area: 1 / 1 / span 1 / span 6; 
+  }
+  .location {
+    grid-area: 2 / 1 / span 1 / span 6; 
+  }
+  .technical_contact {
+    grid-area: 3 / 1 / span 1 / span 6; 
+  }
+  .address {
+    grid-area: 2 / 7 / span 1 / span 6; 
+  }
+  .legal_contact {
+    grid-area: 3 / 7 / span 1 / span 6; 
+  }
+}
+
+.Spectrum {
+  .band {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+  }
+  .service {
+    grid-column: 1 / span 6;
+    grid-row: 2;
+  }
+  .modulation {
+    grid-column: 1 / span 6;
+    grid-row: 3;
+  }
+  .transPower {
+    grid-column: 1 / span 6;
+    grid-row: 4;
   }
 }
