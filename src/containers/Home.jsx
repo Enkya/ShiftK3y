@@ -311,7 +311,7 @@ const Home = () => (
                           <input type='text' id='assignedByLastName' placeholder='Last Name'/>
                         </div>
                         <div className='authorizedBy'>
-                          <label htmlFor='authorizedBy'>
+                          <label htmlFor='spectrum-authorizedBy'>
                             Authorized By
                           </label>
                           <input type='text' id='authorizedByFirstName' placeholder='First Name'/>
@@ -544,11 +544,11 @@ const Home = () => (
                           </label>
                           <textarea rows='5' cols='50' id='numberingNotes'/>
                         </div>
-                        <div className='numberingRecommendations'>
-                          <label htmlFor='numberingRecommendations'>
+                        <div className='numbering-recommendations'>
+                          <label htmlFor='numbering-recommendations'>
                             Recommendations
                           </label>
-                          <textarea rows='5' cols='50' id='numberingRecommendations'/>
+                          <textarea rows='5' cols='50' id='numbering-recommendations'/>
                         </div>
                         <div className='numbering-fullReport'>
                           <label htmlFor='numbering-fullReport'>
@@ -576,7 +576,234 @@ const Home = () => (
                         <span>Technical Broadcasting</span>
                       </div>
                       <div className='details'>
-                      {/* TBD */}
+                        <div className='callSign'>
+                          <label htmlFor='callSign'>
+                            Call Sign
+                          </label>
+                          <input type='text' id='broadcasting-callSign'/>
+                        </div>
+                        <div className='studioLocation'>
+                          <label htmlFor='studioLocation'>
+                            Studio Location (where applicable)
+                          </label>
+                          <textarea rows='5' cols='50' id='studioLocation'/>
+                        </div>
+                        <div className='transmitterLocation'>
+                          <label htmlFor='transmitterLocation'>
+                            Transmitter Location (where applicable)
+                          </label>
+                          <textarea rows='5' cols='50' id='transmitterLocation'/>
+                        </div>
+                        <div className='productionStandard'>
+                          <label htmlFor='productionStandard'>
+                            BR - Production Standard (If Applicable)
+                          </label>
+                          <select name='productionStandard' className='value' id='productionStandard'>
+                            <option value='Standard Definition'>Standard Definition</option>
+                            <option value='High Definition'>High Definition</option>
+                          </select>
+                        </div>
+                        <div className='productionOutputFormat'>
+                          <label htmlFor='productionOutputFormat'>
+                            BR - Production Output Format (If Applicable)
+                          </label>
+                          <select name='productionOutputFormat' className='value' id='productionOutputFormat'>
+                            <option value='Choice 1'>Choice 1</option>
+                            <option value='Choice 2'>Choice 2</option>
+                            <option value='Choice 3'>Choice 3</option>
+                          </select>
+                        </div>
+                        <div className='stlMedium'>
+                          <label htmlFor='stlMedium'>
+                            STL Medium Used (If Applicable)
+                          </label>
+                          <select name='stlMedium' className='value' id='stlMedium'>
+                            <option value='Satellite Link'>Satellite Link</option>
+                            <option value='Microwave Link'>Microwave Link</option>
+                            <option value='Fiber Cable'>Fiber Cable</option>
+                          </select>
+                        </div>
+                        <div className='authorizedContentDistributor'>
+                          <label htmlFor='authorizedContentDistributor'>
+                            Authorized Content Distributor
+                          </label>
+                          <input type='text' id='authorizedContentDistributor'/>
+                        </div>
+                        <div className='authorizedMuxOperator'>
+                          <label htmlFor='authorizedMuxOperator'>
+                            Authorized MUX Operator
+                          </label>
+                          <input type='text' id='authorizedMuxOperator'/>
+                        </div>
+                        <div className='authorizedSignalDistributor'>
+                          <label htmlFor='authorizedSignalDistributor'>
+                            Authorized Signal Distributor
+                          </label>
+                          <input type='text' id='authorizedSignalDistributor'/>
+                        </div>
+                        <div className='disasterRecoveryPlan'>
+                          <label htmlFor='disasterRecoveryPlan'>
+                            Disaster Recovery Plan
+                          </label>
+                          <select name='disasterRecoveryPlan' className='value' id='disasterRecoveryPlan'>
+                            <option value='submitted satisfactory'>Submitted (Satisfactory)</option>
+                            <option value='submitted not satisfactory'>Submitted (Not Satisfactory)</option>
+                            <option value='not submitted'>Not submitted</option>
+                          </select>
+                        </div>
+                        <div className='contentBackupMeasures'>
+                          <label htmlFor='contentBackupMeasures'>
+                            Content Backup Measures
+                          </label>
+                          <select name='contentBackupMeasures' className='value' id='contentBackupMeasures'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='equipmentRedundancy'>
+                          <label htmlFor='equipmentRedundancy'>
+                            Equipment Redundancy
+                          </label>
+                          <select name='equipmentRedundancy' className='value' id='equipmentRedundancy'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='electroMechSafetyMeasures'>
+                          <label htmlFor='electroMechSafetyMeasures'>
+                            Electromechanical Safety Measures
+                          </label>
+                          <select name='electroMechSafetyMeasures' className='value' id='electroMechSafetyMeasures'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='qualityAssuranceMeasures'>
+                          <label htmlFor='qualityAssuranceMeasures'>
+                            Quality Assurance Measures
+                          </label>
+                          <select name='qualityAssuranceMeasures' className='value' id='qualityAssuranceMeasures'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='powerBackupEquipment'>
+                          <label htmlFor='powerBackupEquipment'>
+                            Power Backup Equipment
+                          </label>
+                          <select name='powerBackupEquipment' className='value' id='powerBackupEquipment'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='accessControl'>
+                          <label htmlFor='accessControl'>
+                            Access Control for Studio & TR
+                          </label>
+                          <select name='accessControl' className='value' id='accessControl'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='fireDetectionEquipment'>
+                          <label htmlFor='fireDetectionEquipment'>
+                            Fire Detection and Protection Equipment
+                          </label>
+                          <select name='fireDetectionEquipment' className='value' id='fireDetectionEquipment'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='structuredCabling'>
+                          <label htmlFor='structuredCabling'>
+                            Structured Cabling & Trunking
+                          </label>
+                          <select name='structuredCabling' className='value' id='structuredCabling'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='electricalInstallationCertificate'>
+                          <label htmlFor='electricalInstallationCertificate'>
+                            Electrical Installation Certificate
+                          </label>
+                          <select name='electricalInstallationCertificate' className='value' id='electricalInstallationCertificate'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='airconEquipment'>
+                          <label htmlFor='airconEquipment'>
+                            Air Conditioning Equipment
+                          </label>
+                          <select name='airconEquipment' className='value' id='airconEquipment'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='soundProofing'>
+                          <label htmlFor='soundProofing'>
+                            Sound Proofing & Studio Acoustics
+                          </label>
+                          <select name='soundProofing' className='value' id='soundProofing'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='towerClimbingAccessories'>
+                          <label htmlFor='towerClimbingAccessories'>
+                            Tower Color Coding & Climbing Accessories
+                          </label>
+                          <select name='towerClimbingAccessories' className='value' id='towerClimbingAccessories'>
+                            <option value='Available'>Available</option>
+                            <option value='Not Available'>Not Available</option>
+                          </select>
+                        </div>
+                        <div className='lastInspectionDate'>
+                          <label htmlFor='lastInspectionDate'>
+                            Last Inspection Date
+                          </label>
+                          <input type='date' id='lastInspectionDate' />
+                        </div>
+                        <div className='broadcastingNotes'>
+                          <label htmlFor='broadcastingNotes'>
+                            Notes
+                          </label>
+                          <textarea rows='4' cols='50' id='broadcastingNotes'/>
+                        </div>
+                        <div className='broadcasting-recommendations'>
+                          <label htmlFor='broadcasting-recommendations'>
+                            Recommendations
+                          </label>
+                          <textarea rows='4' cols='50' id='broadcasting-recommendations'/>
+                        </div>
+                        <div className='broadcasting-fullReport'>
+                          <label htmlFor='broadcasting-fullReport'>
+                            Full Report
+                          </label>
+                          <input type='file' id='broadcasting-fullReport' />
+                        </div>
+                        <div className='inspectedBy'>
+                          <label htmlFor='inspectedBy'>
+                            Inspected By
+                          </label>
+                          <input type='text' id='broadcasting-inspectedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='broadcasting-inspectedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='reviewedBy'>
+                          <label htmlFor='reviewedBy'>
+                            Reviewed By
+                          </label>
+                          <input type='text' id='broadcasting-reviewedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='broadcasting-reviewedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='approvedBy'>
+                          <label htmlFor='approvedBy'>
+                            Approved By
+                          </label>
+                          <input type='text' id='broadcasting-approvedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='broadcasting-approvedByLastName' placeholder='Last Name'/>
+                        </div>
                       </div>
                     </div>
                     <div className='postal section'>
@@ -584,7 +811,130 @@ const Home = () => (
                         <span>Technical Postal</span>
                       </div>
                       <div className='details'>
-                        
+                        <div className='callSign'>
+                          <label htmlFor='callSign'>
+                            Call Sign
+                          </label>
+                          <input type='text' id='postal-callSign'/>
+                        </div>
+                        <div className='physicalLocation'>
+                          <label htmlFor='physicalLocation'>
+                            Physical Location Requirements
+                          </label>
+                          <textarea rows='4' cols='50' id='physicalLocation'/>
+                        </div>
+                        <div className='licenseValidity'>
+                          <label htmlFor='licenseValidity'>
+                            Validity & Display of License
+                          </label>
+                          <select name='licenseValidity' className='value' id='licenseValidity'>
+                            <option value='Compliant'>Compliant</option>
+                            <option value='None Compliant'>None Compliant</option>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='articleProtection'>
+                          <label htmlFor='articleProtection'>
+                            Confidentiality & Protection of Postal Articles
+                          </label>
+                          <select name='articleProtection' className='value' id='articleProtection'>
+                            <option value='Compliant'>Compliant</option>
+                            <option value='None Compliant'>None Compliant</option>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='training'>
+                          <label htmlFor='training'>
+                            Training Requirements
+                          </label>
+                          <select name='training' className='value' id='training'>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='licenseValidity'>
+                          <label htmlFor='qosWorkingDays'>
+                            QoS Requirements: Working Days
+                          </label>
+                          <select name='qosWorkingDays' className='value' id='qosWorkingDays'>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='qosLiability'>
+                          <label htmlFor='qosLiability'>
+                            QoS Requirements: Claims/ Liability Handling Policy
+                          </label>
+                          <select name='qosLiability' className='value' id='qosLiability'>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='qosProhibited'>
+                          <label htmlFor='qosProhibited'>
+                            QoS Requirements: Control of Prohibited Items
+                          </label>
+                          <select name='qosProhibited' className='value' id='qosProhibited'>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='complaintsRegister'>
+                          <label htmlFor='complaintsRegister'>
+                            QoS Requirements: Complaints Register
+                          </label>
+                          <select name='complaintsRegister' className='value' id='complaintsRegister'>
+                            <option value='Satisfactory'>Satisfactory</option>
+                            <option value='None Satisfactory'>None Satisfactory</option>
+                          </select>
+                        </div>
+                        <div className='postal-notes'>
+                          <label htmlFor='postal-notes'>
+                            Notes 01
+                          </label>
+                          <textarea rows='4' cols='50' id='postal-notes'/>
+                        </div>
+                        <div className='postal-notes2'>
+                          <label htmlFor='postal-notes2'>
+                            Notes 02
+                          </label>
+                          <textarea rows='4' cols='50' id='postal-notes2'/>
+                        </div>
+                        <div className='postal-recommendations'>
+                          <label htmlFor='postal-recommendations'>
+                            Recommendations
+                          </label>
+                          <textarea rows='4' cols='50' id='postal-recommendations'/>
+                        </div>
+                        <div className='postal-fullReport'>
+                          <label htmlFor='postal-fullReport'>
+                            Full Report
+                          </label>
+                          <input type='file' id='postal-fullReport' />
+                        </div>
+                        <div className='inspectedBy'>
+                          <label htmlFor='inspectedBy'>
+                            Inspected By
+                          </label>
+                          <input type='text' id='postal-inspectedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='postal-inspectedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='reviewedBy'>
+                          <label htmlFor='reviewedBy'>
+                            Reviewed By
+                          </label>
+                          <input type='text' id='postal-reviewedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='postal-reviewedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='approvedBy'>
+                          <label htmlFor='approvedBy'>
+                            Approved By
+                          </label>
+                          <input type='text' id='postal-approvedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='postal-approvedByLastName' placeholder='Last Name'/>
+                        </div>
                       </div>
                     </div>
                     <div className='telecom section'>
@@ -592,7 +942,111 @@ const Home = () => (
                         <span>Technical Telecom</span>
                       </div>
                       <div className='details'>
-                      {/* TBD */}
+                        <div className='serviceDetails'>
+                          <label htmlFor='serviceDetails'>
+                            Details of Service Provided
+                          </label>
+                          <textarea rows='4' cols='50' id='serviceDetails'/>
+                        </div>
+                        <div className='serviceTech'>
+                          <label htmlFor='serviceTech'>
+                            Service Technology, Equipment Interface & Type Approval
+                          </label>
+                          <textarea rows='4' cols='50' id='serviceTech'/>
+                        </div>
+                        <div className='statusQOS'>
+                          <label htmlFor='statusQOS'>
+                            Status on QoS Requirements
+                          </label>
+                          <textarea rows='4' cols='50' id='statusQOS'/>
+                        </div>
+                        <div className='coverageArea'>
+                          <label htmlFor='coverageArea'>
+                            Coverage area details
+                          </label>
+                          <textarea rows='4' cols='50' id='coverageArea'/>
+                        </div>
+                        <div className='sharing'>
+                          <label htmlFor='sharing'>
+                            Interconnection and Facility Sharing Requirements
+                          </label>
+                          <textarea rows='4' cols='50' id='sharing'/>
+                        </div>
+                        <div className='protectionStatus'>
+                          <label htmlFor='protectionStatus'>
+                            Status on Protection of Public Operator Facilities
+                          </label>
+                          <textarea rows='4' cols='50' id='protectionStatus'/>
+                        </div>
+                        <div className='summaryEssentialResourceAuth'>
+                          <label htmlFor='summaryEssentialResourceAuth'>
+                            Summary on Authorizations for Essential Resources
+                          </label>
+                          <textarea rows='4' cols='50' id='summaryEssentialResourceAuth'/>
+                        </div>
+                        <div className='outageStatus'>
+                          <label htmlFor='outageStatus'>
+                            Status on Outages/ Interruption of Operations
+                          </label>
+                          <textarea rows='4' cols='50' id='outageStatus'/>
+                        </div>
+                        <div className='outageReports'>
+                          <label htmlFor='outageReports'>
+                            Outage Reports
+                          </label>
+                          <input type='file' id='outageReports' />
+                        </div>
+                        <div className='emergencyRequirements'>
+                          <label htmlFor='emergencyRequirements'>
+                            Emergency Services & Disaster Requirements
+                          </label>
+                          <textarea rows='4' cols='50' id='emergencyRequirements'/>
+                        </div>
+                        <div className='generalProvisions'>
+                          <label htmlFor='generalProvisions'>
+                            General Provisions
+                          </label>
+                          <textarea rows='4' cols='50' id='generalProvisions'/>
+                        </div>
+                        <div className='telecom-notes'>
+                          <label htmlFor='telecom-notes'>
+                            Notes
+                          </label>
+                          <textarea rows='4' cols='50' id='telecom-notes'/>
+                        </div>
+                        <div className='telecom-recommendations'>
+                          <label htmlFor='telecom-recommendations'>
+                            Recommendations
+                          </label>
+                          <textarea rows='4' cols='50' id='telecom-recommendations'/>
+                        </div>
+                        <div className='telecom-fullReport'>
+                          <label htmlFor='telecom-fullReport'>
+                            Full Report
+                          </label>
+                          <input type='file' id='telecom-fullReport' />
+                        </div>
+                        <div className='inspectedBy'>
+                          <label htmlFor='inspectedBy'>
+                            Inspected By
+                          </label>
+                          <input type='text' id='telecom-inspectedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='telecom-inspectedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='reviewedBy'>
+                          <label htmlFor='reviewedBy'>
+                            Reviewed By
+                          </label>
+                          <input type='text' id='telecom-reviewedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='telecom-reviewedByLastName' placeholder='Last Name'/>
+                        </div>
+                        <div className='telecom-authorizedBy'>
+                          <label htmlFor='telecom-authorizedBy'>
+                            Approved By
+                          </label>
+                          <input type='text' id='telecom-authorizedByFirstName' placeholder='First Name'/>
+                          <input type='text' id='telecom-authorizedByLastName' placeholder='Last Name'/>
+                        </div>
                       </div>
                     </div>
 
