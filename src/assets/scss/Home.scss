@@ -262,7 +262,7 @@
 
 .form-container {
   display: grid;
-  grid-template-areas: "search"
+  grid-template-areas: "actions"
                        "sections";
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
@@ -270,13 +270,12 @@
   grid-row-gap: .5rem;
   align-items: center;
   color: rgba(0,0,0,0.5);
+  min-height: 60rem;
+  overflow-y: scroll;
 
-  .search {
-    grid-area: search;
-    justify-self: center;
-    width: 65%;
-    margin: 1rem auto;
-    border-bottom: .2rem Solid $action-primary;
+  .actions {
+    grid-area: actions;
+    justify-self: end;
   }
 }
 
@@ -290,10 +289,10 @@
   .section {
     grid-column: span 12;
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "title actions"
-                         "details details";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "title"
+                         "details";
     border: .1rem dashed #b6b6b6;
     grid-row-gap: 2.8rem;
     padding: 1rem;
@@ -303,10 +302,6 @@
       grid-area: title;
       padding: .2rem 0 .3rem 0;
       position: relative;
-      position: -webkit-sticky;
-      position: sticky;
-      background-color: #fff;
-      top: -.1rem;
       cursor: default;
       color: $action-primary;
       
@@ -328,64 +323,60 @@
       grid-area: actions;
       place-self: end;
     }
-    
+
     .details {
       grid-area: details;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(3, auto);
-      justify-items: start;
-      grid-gap: .5rem;
-      padding: 0 3%;
-      // margin: 1rem;
-      
+      display: flex;
+      flex-flow: column wrap;
+      margin: 0 2rem;
+      align-content: space-between;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
       & > div {
-        
-        & > div {
-          padding: 0 2rem;
-        }
-        
-        .section-header {
-          padding: 0;
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        margin: .5rem 0;
+        width: 49%;
+
+        & > * {
+          align-self: flex-end;
+          width: 90%;
+          margin: .2rem 0;
+
+          &:nth-child(1) {
+            align-self: flex-start;
+          }
         }
       }
     }
   }
 }
 
-.company {
-  .name{
-    grid-area: 1 / 1 / span 1 / span 6; 
-  }
-  .location {
-    grid-area: 2 / 1 / span 1 / span 6; 
-  }
-  .technical_contact {
-    grid-area: 3 / 1 / span 1 / span 6; 
-  }
-  .address {
-    grid-area: 2 / 7 / span 1 / span 6; 
-  }
-  .legal_contact {
-    grid-area: 3 / 7 / span 1 / span 6; 
-  }
+.label input {
+  float: right;
 }
 
-.Spectrum {
-  .band {
-    grid-column: 1 / span 6;
-    grid-row: 1;
-  }
-  .service {
-    grid-column: 1 / span 6;
-    grid-row: 2;
-  }
-  .modulation {
-    grid-column: 1 / span 6;
-    grid-row: 3;
-  }
-  .transPower {
-    grid-column: 1 / span 6;
-    grid-row: 4;
-  }
+.company .details {
+  height: 25rem;
+}
+
+.Spectrum .details {
+  height: 45rem;
+}
+.typeApproval .details {
+  height: 50rem;
+}
+.numbering .details {
+  height: 60rem;
+}
+.broadcasting .details {
+  height: 95rem;
+}
+.postal .details {
+  height: 60rem;
+}
+.telecom .details {
+  height: 80rem;
 }
