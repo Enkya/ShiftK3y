@@ -6,6 +6,6 @@ import { withRouter, Redirect } from 'react-router-dom';
  * @summary renders the NotFound page. This page displays when the specified route is not found
  * @extends React.component
  */
-const NotFound = () => (<Redirect to='/signin' />);
+const NotFound = () => (<Redirect to='/dashboard' />);
 
 export default withRouter(NotFound);
