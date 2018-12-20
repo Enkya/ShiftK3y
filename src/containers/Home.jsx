@@ -26,6 +26,7 @@ class Home extends Component {
 
   componentWillMount() {
     const { fetchItems } = this.props;
+    fetchItems();
   }
 
   render() {

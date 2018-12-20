@@ -15,14 +15,10 @@ export function saveItem(postProps) {
 }
 
 export function fetchItems() {
-  const request = axios.get('http://jsonplaceholder.typicode.com/users');
+  const request = axios.get('http://jsonplaceholder.typicode.com/posts');
 
-  return function(dispatch) {
-    request.then( function(response) {
-      dispatch({
-        type: FETCH_ITEMS,
-        payload: response,
-      });
-    });
+  return {
+    type: FETCH_ITEMS,
+    payload: request,
   };
 }
