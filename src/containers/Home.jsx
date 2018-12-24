@@ -30,6 +30,10 @@ class Home extends Component {
   }
 
   render() {
+    const value = {
+      name: 'Santa',
+    };
+    const items = [value.name];
     return (
       <div className='container flex-col'>
         <div className='flex-row grow'>
@@ -44,7 +48,7 @@ class Home extends Component {
                   {/* <div className='card data'>
                     <RecordForm />
                   </div> */}
-                  <LinearView />
+                  <LinearView items={items} />
                   <div className='loader' />
                 </div>
               </article>
@@ -57,7 +61,9 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({ items: state.items });
+const mapStateToProps = state => ({
+  items: state.items,
+});
 
 // export default withRouter(Home);
 export default connect(mapStateToProps, actions)(Home);
