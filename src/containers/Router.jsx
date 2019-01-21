@@ -56,7 +56,11 @@ const mapStateToProps = createStructuredSelector({
 });
 
 Router.propTypes = {
-  profile: PropTypes.shape({}).isRequired,
+  profile: PropTypes.shape({}),
+};
+
+Router.defaultProps = {
+  profile: {},
 };
 
 export default connect(mapStateToProps)(Router);
