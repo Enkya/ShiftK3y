@@ -4,11 +4,30 @@ import ErrorMessage from '../common/ErrorMessage';
 
 const createItems = items => (
   items.map(item => (
-    <div className='card'>
+    <div className='card' key={item.id}>
       <div className='avatar'>
         <div className='user__image' />
       </div>
-      {item}
+      <div className='summary'>
+        <div className='name'>
+          {item.company}
+        </div>
+        <div className='category'>
+          {item.category}
+        </div>
+        <div className='services'>
+          {item.services}
+        </div>
+        <div className='status'>
+          {item.status}
+        </div>
+        <div className='resource'>
+          {item.resource}
+        </div>
+        <div className='report'>
+          <a href={item.report}>Download</a>
+        </div>
+      </div>
     </div>
   ))
 );
