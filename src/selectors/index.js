@@ -1,8 +1,10 @@
 import { createSelector } from 'reselect';
 import initialState from '../reducers/initialState';
 
-export const selectUserProfile = state => state.get('userProfile', initialState);
+const selectUserProfile = () => initialState.userProfile;
 
-export const makeSelectUserProfile = () => createSelector(
-  selectUserProfile, userInfoState => userInfoState.get('roles'),
+const makeSelectUserProfile = () => createSelector(
+  selectUserProfile, userInfoState => userInfoState.roles,
 );
+
+export default makeSelectUserProfile;

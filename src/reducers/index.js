@@ -1,11 +1,13 @@
-import { combineReducers } from 'redux-immutable';
-import pageInfoReducer from './pageInfoReducer';
-import userProfileReducer from './userProfileReducer';
+import { combineReducers } from 'redux';
+import pageInfo from './pageInfoReducer';
+import userProfile from './userProfileReducer';
+import entries from './entriesReducer';
 
 
 const rootReducer = combineReducers({
-  pageInfoReducer,
-  userProfileReducer,
+  pageInfo,
+  userProfile,
+  entries,
 });
 
 export default rootReducer;

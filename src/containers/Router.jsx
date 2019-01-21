@@ -9,7 +9,7 @@ import NotFoundPage from './NotFound';
 import pageInfo from '../helpers/pageInfo';
 import PrivateRoute from '../components/routes/PrivateRoute';
 
-import { makeSelectUserProfile } from '../selectors';
+import makeSelectUserProfile from '../selectors';
 import Home from './Home';
 
 const pages = [...pageInfo.pages];
@@ -35,7 +35,7 @@ const Router = ({ profile }) => (
                 component={pageInfoData.component}
                 key={pageInfoData.title}
                 allowedRoles={pageInfoData.allowedRoles}
-                userRoles={profile && profile.get('roles')}
+                userRoles={profile && profile.roles}
               />
             )
             : (
