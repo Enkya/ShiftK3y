@@ -380,3 +380,12 @@
 .telecom .details {
   height: 80rem;
 }
+
+.card .summary {
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    cursor: pointer;
+  }
+}

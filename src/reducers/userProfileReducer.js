@@ -1,21 +1,9 @@
-import { fromJS } from 'immutable';
-
 import {
   FETCH_USER_PROFILE_REQUEST,
   FETCH_USER_PROFILE_SUCCESS,
   FETCH_USER_PROFILE_FAILURE,
 } from '../types';
-
-const initialState = fromJS({
-  requesting: false,
-  info: {
-    department: '',
-    roles: {
-      ECI: 'ECI',
-    },
-  },
-  error: {},
-});
+import initialState from './initialState';
 
 /**
  * @function userProfile
@@ -25,7 +13,7 @@ const initialState = fromJS({
  * @param {Object} action
  * @returns {Object} user profile state
  */
-const userProfile = (state = initialState, action) => {
+const userProfile = (state = initialState.userProfile, action) => {
   switch (action.type) {
   case FETCH_USER_PROFILE_REQUEST:
     return {

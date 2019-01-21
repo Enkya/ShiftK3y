@@ -8,7 +8,7 @@ import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
 import PersonalActions from '../components/sidebar/PersonalActions';
 import LinearView from './LinearView';
-// import RecordForm from './forms/RecordsForm';
+import RecordForm from './forms/RecordsForm';
 
 /**
  * @name Dashboard
@@ -26,9 +26,20 @@ class Home extends Component {
 
   componentWillMount() {
     const { fetchItems } = this.props;
+    fetchItems();
   }
 
   render() {
+    const value = {
+      id: 'fjg',
+      company: 'Santa',
+      status: 'compliant',
+      resource: 91.5,
+      report: '/report.pdf',
+      services: 'Commercial Radio',
+      category: 'FM Radio',
+    };
+    const items = [value];
     return (
       <div className='container flex-col'>
         <div className='flex-row grow'>
@@ -40,10 +51,10 @@ class Home extends Component {
               <ContentHeader />
               <article className='renderview'>
                 <div className='linear-view'>
-                  {/* <div className='card data'>
+                  <div className='card data'>
                     <RecordForm />
-                  </div> */}
-                  <LinearView />
+                  </div>
+                  <LinearView items={items} />
                   <div className='loader' />
                 </div>
               </article>
@@ -56,7 +67,9 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({ items: state.items });
+const mapStateToProps = state => ({
+  items: state.items,
+});
 
 // export default withRouter(Home);
 export default connect(mapStateToProps, actions)(Home);

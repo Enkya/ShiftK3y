@@ -1,16 +1,7 @@
-import { fromJS } from 'immutable';
-
 import { TITLE_CHANGE } from '../types';
+import initialState from './initialState';
 
-const initialState = fromJS({
-  pageInfo: {
-    title: 'Home',
-    url: '/',
-    roles: {},
-  },
-});
-
-const pageInfo = (state = initialState, action) => {
+const pageInfo = (state = initialState.pageInfo, action) => {
   switch (action.type) {
   case TITLE_CHANGE:
     return action.data;
