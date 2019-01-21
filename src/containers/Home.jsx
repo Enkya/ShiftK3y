@@ -8,7 +8,7 @@ import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
 import PersonalActions from '../components/sidebar/PersonalActions';
 import LinearView from './LinearView';
-// import RecordForm from './forms/RecordsForm';
+import RecordForm from './forms/RecordsForm';
 
 /**
  * @name Dashboard
@@ -31,9 +31,15 @@ class Home extends Component {
 
   render() {
     const value = {
-      name: 'Santa',
+      id: 'fjg',
+      company: 'Santa',
+      status: 'compliant',
+      resource: 91.5,
+      report: '/report.pdf',
+      services: 'Commercial Radio',
+      category: 'FM Radio',
     };
-    const items = [value.name];
+    const items = [value];
     return (
       <div className='container flex-col'>
         <div className='flex-row grow'>
@@ -45,9 +51,9 @@ class Home extends Component {
               <ContentHeader />
               <article className='renderview'>
                 <div className='linear-view'>
-                  {/* <div className='card data'>
+                  <div className='card data'>
                     <RecordForm />
-                  </div> */}
+                  </div>
                   <LinearView items={items} />
                   <div className='loader' />
                 </div>
