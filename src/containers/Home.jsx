@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import * as actions from '../actions';
+import { fetchEntries } from '../actions/fetchEntriesActions';
 
 import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
@@ -18,10 +18,12 @@ import RecordForm from './forms/RecordsForm';
 class Home extends Component {
   static propTypes = {
     fetchItems: PropTypes.func,
+    items: PropTypes.arrayOf(PropTypes.shape({})),
   }
 
   static defaultProps = {
     fetchItems: () => {},
+    items: [],
   }
 
   componentWillMount() {
@@ -30,16 +32,7 @@ class Home extends Component {
   }
 
   render() {
-    const value = {
-      id: 'fjg',
-      company: 'Santa',
-      status: 'compliant',
-      resource: 91.5,
-      report: '/report.pdf',
-      services: 'Commercial Radio',
-      category: 'FM Radio',
-    };
-    const items = [value];
+    const { items } = this.props;
     return (
       <div className='container flex-col'>
         <div className='flex-row grow'>
@@ -68,8 +61,11 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.items,
+  items: state.entries.entries,
 });
 
+const mapDispatchToProps = dispatch => ({
+  fetchItems: () => dispatch(fetchEntries()),
+});
 // export default withRouter(Home);
-export default connect(mapStateToProps, actions)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
