@@ -1,4 +1,4 @@
-import NotFound from '../containers/NotFound';
+import Home from '../containers/Home';
 
 import {
   LEGAL,
@@ -9,8 +9,9 @@ import {
 const pageInfo = {
   pages: [
     {
-      title: 'Not Found',
-      component: NotFound,
+      title: 'Home',
+      url: '/dashboard',
+      component: Home,
     },
     {
       title: 'Spectrum',
