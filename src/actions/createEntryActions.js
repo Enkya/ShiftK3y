@@ -5,6 +5,7 @@ import {
   CREATE_ENTRY_FAILURE,
   CREATE_ENTRY_SUCCESS,
 } from '../types';
+import config from '../config';
 
 /**
  * @function createEntryRequest
@@ -50,7 +51,7 @@ export const createEntrySuccess = entry => (
 export const createEntry = entry => (
   (dispatch) => {
     dispatch(createEntryRequest());
-    const url = 'http://jsonplaceholder.typicode.com/posts';
+    const url = `${config.API_BASE_URL}/posts`;
     return axios.post(url, entry)
       .then(() => {
         dispatch(createEntrySuccess(entry));

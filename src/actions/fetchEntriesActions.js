@@ -5,6 +5,7 @@ import {
   FETCH_ENTRIES_FAILURE,
   FETCH_ENTRIES_SUCCESS,
 } from '../types';
+import config from '../config';
 
 /**
  * @function fetchEntriesRequest
@@ -50,7 +51,7 @@ export const fetchEntriesSuccess = entries => (
 export const fetchEntries = () => (
   (dispatch) => {
     dispatch(fetchEntriesRequest());
-    return axios.get('http://jsonplaceholder.typicode.com/posts')
+    return axios.get(`${config.API_BASE_URL}/posts`)
       .then((response) => {
         dispatch(fetchEntriesSuccess(response.data));
       })
