@@ -33,12 +33,9 @@ class Entries extends Component {
   render() {
     const { items, requesting } = this.props;
     const entriesHTML = requesting
-      ? (<EntriesLoader />)
-      : (
-        <LinearView items={items} />
-      );
-
-    return ({ entriesHTML });
+      ? <EntriesLoader />
+      : <LinearView items={items} />;
+    return (entriesHTML);
   }
 }
 
