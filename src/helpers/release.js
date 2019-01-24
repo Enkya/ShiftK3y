@@ -3,6 +3,7 @@ const NOT_READY = [
   'entryCounter',
   'PersonalActions',
   'API_ENDPOINT',
+  'edit',
 ];
 
 const IS_NOT_READY = item => (NOT_READY.includes(item));
