@@ -1,75 +1,79 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import * as actions from '../actions';
+import { Route } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
 import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
-import PersonalActions from '../components/sidebar/PersonalActions';
-import LinearView from './LinearView';
-import RecordForm from './forms/RecordsForm';
+
+import pageInfo from '../helpers/pageInfo';
+import PrivateRoute from '../components/routes/PrivateRoute';
+
+import makeSelectUserProfile from '../selectors';
+
+
+const pages = [...pageInfo.pages];
+
+const renderChildRoutes = profile => (
+  pages.map(pageInfoData => (
+    pageInfoData.allowedRoles
+      ? (
+        <PrivateRoute
+          path={pageInfoData.url}
+          exact
+          component={pageInfoData.component}
+          key={pageInfoData.title}
+          allowedRoles={pageInfoData.allowedRoles}
+          userRoles={profile && profile.roles}
+        />
+      )
+      : (
+        <Route
+          path={pageInfoData.url}
+          exact
+          component={pageInfoData.component}
+          key={pageInfoData.title}
+        />
+      )
+  ))
+);
 
 /**
- * @name Dashboard
+ * @name Home
  * @summary renders Home component
  * @extends React.component
  */
-class Home extends Component {
-  static propTypes = {
-    fetchItems: PropTypes.func,
-  }
-
-  static defaultProps = {
-    fetchItems: () => {},
-  }
-
-  componentWillMount() {
-    const { fetchItems } = this.props;
-    fetchItems();
-  }
-
-  render() {
-    const value = {
-      id: 'fjg',
-      company: 'Santa',
-      status: 'compliant',
-      resource: 91.5,
-      report: '/report.pdf',
-      services: 'Commercial Radio',
-      category: 'FM Radio',
-    };
-    const items = [value];
-    return (
-      <div className='container flex-col'>
-        <div className='flex-row grow'>
-          <div className='clipping' />
-          <aside className='sidenav' />
-          <main className='dash-container'>
-            <TopNav />
-            <div className='content'>
-              <ContentHeader />
-              <article className='renderview'>
-                <div className='linear-view'>
-                  <div className='card data'>
-                    <RecordForm />
-                  </div>
-                  <LinearView items={items} />
-                  <div className='loader' />
-                </div>
-              </article>
-              <PersonalActions />
+const Home = () => (
+  <div className='container flex-col'>
+    <div className='flex-row grow'>
+      <div className='clipping' />
+      <aside className='sidenav' />
+      <main className='dash-container'>
+        <TopNav />
+        <div className='content'>
+          <ContentHeader />
+          <article className='renderview'>
+            <div className='linear-view'>
+              { renderChildRoutes() }
             </div>
-          </main>
+          </article>
         </div>
-      </div>
-    );
-  }
-}
+      </main>
+    </div>
+  </div>
+);
 
-const mapStateToProps = state => ({
-  items: state.items,
+const mapStateToProps = createStructuredSelector({
+  profile: makeSelectUserProfile(),
 });
 
-// export default withRouter(Home);
-export default connect(mapStateToProps, actions)(Home);
+Home.propTypes = {
+  profile: PropTypes.shape({}),
+};
+
+Home.defaultProps = {
+  profile: {},
+};
+
+export default connect(mapStateToProps)(Home);

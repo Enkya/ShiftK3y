@@ -1,16 +1,29 @@
-import NotFound from '../containers/NotFound';
+import Entries from '../containers/Entries';
 
 import {
   LEGAL,
   ECI,
   SPECTRUM,
 } from '../constants/roles';
+import NewEntry from '../containers/NewEntry';
 
 const pageInfo = {
   pages: [
     {
-      title: 'Not Found',
-      component: NotFound,
+      title: 'All Entries',
+      url: '/',
+      component: Entries,
+    },
+    {
+      title: 'Dashboard',
+      url: '/dashboard',
+      component: Entries,
+    },
+    {
+      title: 'New Entry',
+      url: '/new',
+      component: NewEntry,
+      menuIcon: '',
     },
     {
       title: 'Spectrum',
