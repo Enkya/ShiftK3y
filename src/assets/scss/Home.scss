@@ -150,7 +150,7 @@
       display: flex;
       grid-template-columns: repeat(12, 1fr);
       align-items: baseline;
-      justify-content: flex-end;
+      justify-content: space-between;
 
       > div {
         margin-left: 1%;
@@ -159,6 +159,7 @@
       .page__title {
         font-size: 3rem;
         color: $primary;
+        justify-self: flex-start;
       }
 
       .sorter {

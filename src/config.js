@@ -11,7 +11,7 @@ const configs = {
   development: {
     AUTH_API: process.env.AUTH_API || '',
     APP_URL: process.env.APP_URL || '',
-    API_BASE_URL: process.env.API_BASE_URL || 'http://jsonplaceholder.typicode.com',
+    API_BASE_URL: process.env.API_BASE_URL || 'https://jsonplaceholder.typicode.com',
   },
   testing: {
     AUTH_API: process.env.TESTING_AUTH_API || '',

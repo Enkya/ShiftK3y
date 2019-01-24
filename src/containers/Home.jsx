@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect';
 
 import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
+import PersonalActions from '../components/sidebar/PersonalActions';
 
 import pageInfo from '../helpers/pageInfo';
 import PrivateRoute from '../components/routes/PrivateRoute';
@@ -58,6 +59,7 @@ const Home = () => (
               { renderChildRoutes() }
             </div>
           </article>
+          <PersonalActions />
         </div>
       </main>
     </div>

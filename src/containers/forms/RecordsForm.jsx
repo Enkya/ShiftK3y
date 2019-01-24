@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createEntry } from '../../actions/createEntryActions';
+import IS_NOT_READY from '../../helpers/release';
 
 class RecordForm extends Component {
   static propTypes = {
@@ -69,10 +70,11 @@ class RecordForm extends Component {
       legalPersonName,
       legalPersonEmail,
     } = this.state;
+    const edit = !IS_NOT_READY('edit') && <button type='button' className='edit'>Edit</button>;
     return (
       <form className='form-container'>
         <div className='actions'>
-          <button type='button' className='edit'>Edit</button>
+          { edit }
           <button type='button' onClick={this.handleAddEvent} className='save'>Save</button>
         </div>
         <div className='sections'>

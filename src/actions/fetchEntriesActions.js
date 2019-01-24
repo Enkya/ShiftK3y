@@ -6,6 +6,7 @@ import {
   FETCH_ENTRIES_SUCCESS,
 } from '../types';
 import config from '../config';
+import IS_NOT_READY from '../helpers/release';
 
 /**
  * @function fetchEntriesRequest
@@ -53,7 +54,8 @@ export const fetchEntries = () => (
     dispatch(fetchEntriesRequest());
     return axios.get(`${config.API_BASE_URL}/posts`)
       .then((response) => {
-        dispatch(fetchEntriesSuccess(response.data));
+        const data = IS_NOT_READY('API_ENDPOINT') ? response.data.splice(0, 5) : response.data;
+        dispatch(fetchEntriesSuccess(data));
       })
       .catch((error) => { dispatch(fetchEntriesFailure(error)); });
   }
