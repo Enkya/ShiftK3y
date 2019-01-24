@@ -1,17 +1,29 @@
-import Home from '../containers/Home';
+import Entries from '../containers/Entries';
 
 import {
   LEGAL,
   ECI,
   SPECTRUM,
 } from '../constants/roles';
+import NewEntry from '../containers/NewEntry';
 
 const pageInfo = {
   pages: [
     {
-      title: 'Home',
+      title: 'All Entries',
+      url: '/',
+      component: Entries,
+    },
+    {
+      title: 'Dashboard',
       url: '/dashboard',
-      component: Home,
+      component: Entries,
+    },
+    {
+      title: 'New Entry',
+      url: '/new',
+      component: NewEntry,
+      menuIcon: '',
     },
     {
       title: 'Spectrum',
