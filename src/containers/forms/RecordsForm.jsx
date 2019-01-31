@@ -3,29 +3,99 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createEntry } from '../../actions/createEntryActions';
 import IS_NOT_READY from '../../helpers/release';
+import {
+  BANDS,
+  SERVICES_AUTHORIZED,
+  CHOICES,
+  STATUSES,
+  EQUIPMENT_CATEGORIES,
+} from '../../constants/categories';
+
+import Select from '../../common/Select';
+import TextArea from '../../common/TextArea';
 
 class RecordForm extends Component {
   static propTypes = {
     addEntry: PropTypes.func,
+    message: PropTypes.shape({
+      type: PropTypes.string,
+      text: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
     addEntry: () => {},
+    message: {
+      type: '',
+      text: '',
+    },
   }
 
   constructor() {
     super();
-    this.state = {
-      name: '',
-      district: '',
-      postal: '',
-    };
+    this.state = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleAddEvent = this.handleAddEvent.bind(this);
   }
 
+  componentWillMount() {
+    this.resetState();
+  }
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  resetState = () => {
+    this.setState({
+      name: '',
+      district: '',
+      postal: '',
+      country: '',
+      techPersonName: '',
+      techPersonEmail: '',
+      address1: '',
+      address2: '',
+      legalPersonName: '',
+      legalPersonEmail: '',
+      operationBand: '',
+      applicableServiceType: '',
+      serviceAuthorized: '',
+      modulationPermitted: '',
+      transPower: '',
+      antennaeGain: '',
+      antennaeHeight: '',
+      transmitLocation: '',
+      stlFrequency: '',
+      stlPower: '',
+      stlLocation: '',
+      txAssignDate: '',
+      stlAssignDate: '',
+      assignedByFirstName: '',
+      assignedByLastName: '',
+      authorizedByFirstName: '',
+      authorizedByLastName: '',
+      spectrumFullReport: {},
+      status: '',
+      TAUniqueID: '',
+      approveRejectDate: '',
+      equipmentCategory: '',
+      equipmentName: '',
+      equipmentModel: '',
+      equipmentDesc: '',
+      applicableStandards: '',
+      applicantName: '',
+      applicantAddressLine1: '',
+      applicantAddressLine2: '',
+      applicantCity: '',
+      applicantState: '',
+      applicantPostal: '',
+      applicantCountry: '',
+      typeApprovalFullReport: {},
+      taCertificate: {},
+      assessedByFirstName: '',
+      assessedByLastName: '',
+    });
   }
 
   handleAddEvent = () => {
@@ -40,6 +110,44 @@ class RecordForm extends Component {
       address2,
       legalPersonName,
       legalPersonEmail,
+      operationBand,
+      applicableServiceType,
+      serviceAuthorized,
+      modulationPermitted,
+      transPower,
+      antennaeGain,
+      antennaeHeight,
+      transmitLocation,
+      stlFrequency,
+      stlPower,
+      stlLocation,
+      txAssignDate,
+      stlAssignDate,
+      assignedByFirstName,
+      assignedByLastName,
+      authorizedByFirstName,
+      authorizedByLastName,
+      spectrumFullReport,
+      status,
+      TAUniqueID,
+      approveRejectDate,
+      equipmentCategory,
+      equipmentName,
+      equipmentModel,
+      equipmentDesc,
+      applicableStandards,
+      applicantName,
+      applicantAddressLine1,
+      applicantAddressLine2,
+      applicantCity,
+      applicantState,
+      applicantPostal,
+      applicantCountry,
+      typeApprovalFullReport,
+      taCertificate,
+      assessedByFirstName,
+      assessedByLastName,
+      serviceCategory,
     } = this.state;
     const entry = {
       name,
@@ -52,12 +160,51 @@ class RecordForm extends Component {
       address2,
       legalPersonName,
       legalPersonEmail,
+      operationBand,
+      applicableServiceType,
+      serviceAuthorized,
+      modulationPermitted,
+      transPower,
+      antennaeGain,
+      antennaeHeight,
+      transmitLocation,
+      stlFrequency,
+      stlPower,
+      stlLocation,
+      txAssignDate,
+      stlAssignDate,
+      assignedByFirstName,
+      assignedByLastName,
+      authorizedByFirstName,
+      authorizedByLastName,
+      spectrumFullReport,
+      status,
+      approveRejectDate,
+      TAUniqueID,
+      equipmentCategory,
+      equipmentName,
+      equipmentModel,
+      equipmentDesc,
+      applicableStandards,
+      applicantName,
+      applicantAddressLine1,
+      applicantAddressLine2,
+      applicantCity,
+      applicantState,
+      applicantPostal,
+      applicantCountry,
+      typeApprovalFullReport,
+      taCertificate,
+      assessedByFirstName,
+      assessedByLastName,
+      serviceCategory,
     };
     const { addEntry } = this.props;
     addEntry(entry);
   }
 
   render() {
+    // TODO: Destructure state automatically with a loop
     const {
       name,
       district,
@@ -69,8 +216,49 @@ class RecordForm extends Component {
       address2,
       legalPersonName,
       legalPersonEmail,
+      operationBand,
+      // applicableServiceType,
+      serviceAuthorized,
+      modulationPermitted,
+      transPower,
+      antennaeGain,
+      antennaeHeight,
+      transmitLocation,
+      stlFrequency,
+      stlPower,
+      stlLocation,
+      txAssignDate,
+      stlAssignDate,
+      assignedByFirstName,
+      assignedByLastName,
+      authorizedByFirstName,
+      authorizedByLastName,
+      // spectrumFullReport,
+      status,
+      approveRejectDate,
+      TAUniqueID,
+      equipmentCategory,
+      equipmentName,
+      equipmentModel,
+      equipmentDesc,
+      applicableStandards,
+      applicantName,
+      applicantAddressLine1,
+      applicantAddressLine2,
+      applicantCity,
+      applicantState,
+      applicantPostal,
+      applicantCountry,
+      // typeApprovalFullReport,
+      // taCertificate,
+      assessedByFirstName,
+      assessedByLastName,
+      // serviceCategory,
     } = this.state;
+    // TODO: Import datasets from somewhere else
+    // TODO: Work on Edit Feature
     const edit = !IS_NOT_READY('edit') && <button type='button' className='edit'>Edit</button>;
+
     return (
       <form className='form-container'>
         <div className='actions'>
@@ -226,115 +414,197 @@ class RecordForm extends Component {
             <div className='details'>
               <div className='band'>
                 { /* eslint-disable */ }
-                <label className='label' htmlFor='operationband'>
-                  Band of Operation
-                </label>
-                <select name='operationband' id='operationband'>
-                  <option value='KHz'>KHz</option>
-                  <option value='MHz'>MHz</option>
-                  <option value='GHz'>GHz</option>
-                </select>
+                <Select
+                  name='operationBand'
+                  placeholder='Select Band'
+                  options={BANDS}
+                  title='Band of Operation'
+                  value={operationBand}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='service'>
-                <label className='label' htmlFor='authService'>
-                  Service Authorized
-                </label>
-                <select name='authService' className='value' id='authService'>
-                  <option value='Fm Broadcasting'>FM Broadcasting</option>
-                  <option value='DAB'>DAB</option>
-                  <option value='Digital'>Digital TV</option>
-                  <option value='Mobile Telephony (2G)'>Mobile Telephony (2G)</option>
-                  <option value='Mobile Telephony (3G)'>Mobile Telephony (3G)</option>
-                  <option value='Mobile Telephony (LTE)'>Mobile Telephony (LTE)</option>
-                  <option value='Microwave'>Microwave</option>
-                  <option value='Two way radio'>Two way Radio</option>
-                </select>
+                <Select
+                  name='serviceAuthorized'
+                  placeholder='Select a Service'
+                  options={SERVICES_AUTHORIZED}
+                  title='Authorized Services'
+                  value={serviceAuthorized}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='modulation'>
-                <label className='label' htmlFor='modulationPermitted'>
-                  Modulation Permitted
-                </label>
-                <select name='modulationPermitted' className='value' id='modulationPermitted'>
-                  <option value='Choice 1'>Choice 1</option>
-                  <option value='Choice 2'>Choice 2</option>
-                  <option value='Choice 3'>Choice 3</option>
-                </select>
+                <Select
+                  name='modulationPermitted'
+                  placeholder='Select a Category'
+                  options={CHOICES}
+                  title='Modulation Permitted'
+                  value={modulationPermitted}
+                  handleChange={this.handleChange}
+                />
               </div>
-              { /* eslint-disable enable */}
               <div className='transPower'>
                 <label className='label' htmlFor='transPower'>
                   Assigned Transmission Power (Watts)
+                  <input
+                    type='number'
+                    className='value'
+                    name='transPower'
+                    value={transPower}
+                    onChange={this.handleChange}
+                  />
                 </label>
-                <input type='number' id='transPower' />
               </div>
               <div className='antennaeGain'>
                 <label className='label' htmlFor='antennaeGain'>
                   Authorized Antennae Gain (dB)
+                  <input
+                    type='number'
+                    className='value'
+                    name='antennaeGain'
+                    value={antennaeGain}
+                    onChange={this.handleChange}
+                  />
                 </label>
-                <input type='number' id='antennaeGain' />
               </div>
               <div className='antennaeHeight'>
                 <label className='label' htmlFor='antennaeHeight'>
                   Authorized Antennae Height (m)
+                  <input
+                    type='number'
+                    className='value'
+                    name='antennaeHeight'
+                    value={antennaeHeight}
+                    onChange={this.handleChange}
+                  />
                 </label>
-                <input type='number' id='antennaeHeight' />
               </div>
               <div className='transmitLocation'>
                 <label className='label' htmlFor='transmitLocation'>
                   Authorized Transmit Location
+                  <input
+                    type='text'
+                    className='value'
+                    name='transmitLocation'
+                    value={transmitLocation}
+                    onChange={this.handleChange}
+                  />
                 </label>
-                <input type='text' id='transmitLocation' />
               </div>
               <div className='stlFrequency'>
                 <label className='label' htmlFor='stlFrequency'>
                   Assigned STL Frequency (KHz, MHz, GHz)
+                  <input
+                    type='number'
+                    className='value'
+                    name='stlFrequency'
+                    value={stlFrequency}
+                    onChange={this.handleChange}
+                  />
                 </label>
-                <input type='number' id='stlFrequency' />
               </div>
               <div className='stlPower'>
                 <label className='label' htmlFor='stlPower'>
                   Assigned STL Power (Watts)
                 </label>
-                <input type='number' id='stlPower' />
+                <input
+                  type='number'
+                  className='value'
+                  name='stlPower'
+                  value={stlPower}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='stlLocation'>
                 <label className='label' htmlFor='stlLocation'>
                   Assigned STL Location
                 </label>
-                <input type='number' id='stlLocation' />
+                <input
+                  type='number'
+                  className='value'
+                  name='stlLocation'
+                  value={stlLocation}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='txAssignDate'>
                 <label className='label' htmlFor='txAssignDate'>
                   TX Freq. Assignment Date
                 </label>
-                <input type='date' id='txAssignDate' />
+                <input
+                  type='date'
+                  className='value'
+                  name='txAssignDate'
+                  value={txAssignDate}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='stlAssignDate'>
                 <label className='label' htmlFor='stlAssignDate'>
                   STL Freq. Assignment Date
                 </label>
-                <input type='date' id='stlAssignDate' />
+                <input
+                  type='date'
+                  className='value'
+                  name='stlAssignDate'
+                  value={stlAssignDate}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='assignedBy'>
                 <label className='label' htmlFor='assignedBy'>
                   Assigned By
                 </label>
-                <input type='text' id='assignedByFirstName' placeholder='First Name'/>
-                <input type='text' id='assignedByLastName' placeholder='Last Name'/>
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='First Name'
+                  name='assignedByFirstName'
+                  value={assignedByFirstName}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Last Name'
+                  name='assignedByLastName'
+                  value={assignedByLastName}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='authorizedBy'>
-                <label className='label' htmlFor='spectrum-authorizedBy'>
+                <label className='label' htmlFor='authorizedByFirstName'>
                   Authorized By
                 </label>
-                <input type='text' id='authorizedByFirstName' placeholder='First Name'/>
-                <input type='text' id='authorizedByLastName' placeholder='Last Name'/>
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='First Name'
+                  name='authorizedByFirstName'
+                  value={authorizedByFirstName}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Last Name'
+                  name='authorizedByLastName'
+                  value={authorizedByLastName}
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className='spectrum-fullReport'>
-                <label className='label' htmlFor='spectrum-fullReport'>
+              {/* <div className='spectrum-fullReport'>
+                <label className='label' htmlFor='spectrumFullReport'>
                   Full Report
                 </label>
-                <input type='file' id='spectrum-fullReport' />
-              </div>
+                <input
+                  type='file'
+                  className='value'
+                  placeholder='First Name'
+                  name='spectrumFullReport'
+                  onChange={this.handleChange}
+                />
+              </div> */}
             </div>
           </div>
           <div className='typeApproval section'>
@@ -344,118 +614,219 @@ class RecordForm extends Component {
             <div className='details'>
               {/* TBD */}
               <div className='status'>
-                <label className='label' htmlFor='status'>
-                  Status
-                </label>
-                <select name='status' className='value' id='status'>
-                  <option value='Approved'>Approved</option>
-                  <option value='Rejected'>Rejected</option>
-                </select>
+                <Select
+                  name='status'
+                  options={STATUSES}
+                  placeholder='Status'
+                  title='Status'
+                  value={status}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='approveRejectDate'>
                 <label className='label' htmlFor='approveRejectDate'>
                   Approval/Rejection Date
                 </label>
-                <input type='date' id='approveRejectDate'/>
+                <input
+                  type='date'
+                  className='value'
+                  name='approveRejectDate'
+                  value={approveRejectDate}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='TAUniqueID'>
                 <label className='label' htmlFor='TAUniqueID'>
                   TA Unique ID
                 </label>
-                <input type='text' id='TAUniqueID'/>
+                <input
+                  type='text'
+                  className='value'
+                  name='TAUniqueID'
+                  value={TAUniqueID}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='equipmentCategory'>
-                <label className='label' htmlFor='equipmentCategory'>
-                  Equipment Category
-                </label>
-                <select name='equipmentCategory' className='value' id='equipmentCategory'>
-                  <option value='STB'>STB</option>
-                  <option value='IDTV'>IDTV</option>
-                </select>
+                <Select
+                  name='equipmentCategory'
+                  placeholder='Equipment Category'
+                  options={EQUIPMENT_CATEGORIES}
+                  title='Equipment Category'
+                  value={equipmentCategory}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='equipmentName'>
                 <label className='label' htmlFor='equipmentName'>
                   Equipment Name
                 </label>
-                <input type='text' id='equipmentName'/>
+                <input
+                  type='text'
+                  className='value'
+                  name='equipmentName'
+                  value={equipmentName}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='equipmentModel'>
                 <label className='label' htmlFor='equipmentModel'>
                   Equipment Model
                 </label>
-                <input type='text' id='equipmentModel'/>
+                <input
+                  type='text'
+                  className='value'
+                  name='equipmentModel'
+                  value={equipmentModel}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='equipmentDesc'>
-                <label className='label' htmlFor='equipmentDesc'>
-                  Equipment Description
-                </label>
-                <textarea rows='4' cols='50' id='equipmentDesc'/>
+                <TextArea
+                  title='Equipment Description'
+                  rows={4}
+                  resize={false}
+                  name='equipmentDesc'
+                  placeholder='keep it brief'
+                  value={equipmentDesc}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='applicableStandards'>
                 <label className='label' htmlFor='applicableStandards'>
                   Applicable Standard(s)
                 </label>
-                <input type='text' id='applicableStandards'/>
+                <input
+                  type='text'
+                  className='value'
+                  name='applicableStandards'
+                  value={applicableStandards}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='applicantName'>
                 <label className='label' htmlFor='applicantName'>
                   Applicant Name
                 </label>
-                <input type='text' id='applicantName'/>
+                <input
+                  type='text'
+                  className='value'
+                  name='applicantName'
+                  value={applicantName}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className='applicantAddress'>
                 <label className='label' htmlFor='applicantAddress'>
                   Applicant Address
                 </label>
-                <input type='text' id='applicant-addressline1'/>
-                <input type='text' id='applicant-addressline2'/>
-                <input type='text' id='applicant-city'/>
-                <input type='text' id='applicant-state'/>
-                <input type='number' id='applicant-postal'/>
-                <input type='text' id='applicant-country'/>
+                <input
+                  type='text'
+                  name='applicantAddressLine1'
+                  placeholder='Address Line 1'
+                  value={applicantAddressLine1}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Address Line 2'
+                  name='applicantAddressLine2'
+                  value={applicantAddressLine2}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='City'
+                  name='applicantCity'
+                  value={applicantCity}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='State'
+                  name='applicantState'
+                  value={applicantState}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Postal Address'
+                  name='applicantPostal'
+                  value={applicantPostal}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Country'
+                  name='applicantCountry'
+                  value={applicantCountry}
+                  onChange={this.handleChange}
+                />
               </div>
-              <div className='typeApproval-fullReport'>
+              {/* <div className='typeApproval-fullReport'>
                 <label className='label' htmlFor='typeApproval-fullReport'>
                   Full Report
                 </label>
-                <input type='file' id='typeApproval-fullReport'/>
-              </div>
-              <div className='applicantName'>
-                <label className='label' htmlFor='applicantName'>
-                  TA Certificate
-                </label>
-                <input type='text' id='applicantName'/>
-              </div>
-              <div className='taCertificate'>
+                <input
+                  type='file'
+                  className='value'
+                  name='typeApprovalFullReport'
+                  onChange={this.handleChange}
+                />
+              </div> */}
+              {/* <div className='taCertificate'>
                 <label className='label' htmlFor='taCertificate'>
                   TA Certificate
                 </label>
-                <input type='file' id='taCertificate' />
-              </div>
+                <input
+                  type='file'
+                  className='value'
+                  name='taCertificate'
+                  onChange={this.handleChange}
+                />
+              </div> */}
               <div className='assessedBy'>
                 <label className='label' htmlFor='assessedBy'>
                   Assessed By
                 </label>
-                <input type='text' id='assessedByFirstName' placeholder='First Name'/>
-                <input type='text' id='assessedByLastName' placeholder='Last Name'/>
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='First Name'
+                  name='assessedByFirstName'
+                  value={assessedByFirstName}
+                  onChange={this.handleChange}
+                />
+                <input
+                  type='text'
+                  className='value'
+                  placeholder='Last Name'
+                  name='assessedByLastName'
+                  value={assessedByLastName}
+                  onChange={this.handleChange}
+                />
               </div>
             </div>
           </div>
-          <div className='numbering section'>
+          {/* <div className='numbering section'>
             <div className='title'>
               <span>Numbering</span>
             </div>
             <div className='details'>
-              {/* TBD */}
               <div className='serviceCategory'>
-                <label className='label' htmlFor='serviceCategory'>
-                  Service Category
-                </label>
-                <select name='serviceCategory' id='serviceCategory'>
-                  <option value='Broadcasting'>Broadcasting</option>
-                  <option value='Telecom'>Telecommunications</option>
-                  <option value='Postal'>Postal</option>
-                </select>
+                <Select
+                  name='serviceCategory'
+                  placeholder='Select Band'
+                  options={serviceCategories}
+                  title='Service Category'
+                  value={serviceCategory}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='numberType'>
                 <label className='label' htmlFor='numberType'>
@@ -477,23 +848,14 @@ class RecordForm extends Component {
                 <input type='text' id='serviceName'/>
               </div>
               <div className='applicableServiceType'>
-                <label className='label' htmlFor='applicableServiceType'>
-                  Applicable Service Type
-                </label>
-                <select name='applicableServiceType' id='applicableServiceType'>
-                  <option value='Complimentary TV Services'>Complimentary TV Services</option>
-                  <option value='Content Provision Services'>Content Provision Services</option>
-                  <option value='Core TV Service'>Core TV Service</option>
-                  <option value='Emergency and Safety Services'>Emergency and Safety Services</option>
-                  <option value='Fixed Subscriber Services'>Fixed Subscriber Services</option>
-                  <option value='ISPC'>ISPC</option>
-                  <option value='MNC'>MNC</option>
-                  <option value='MNO Services'>MNO Services</option>
-                  <option value='Mobile Subscriber Services'>Mobile Subscriber Services</option>
-                  <option value='NSPC'>NSPC</option>
-                  <option value='Premium Subscriber Services'>Premium Subscriber Services</option>
-                  <option value='Special Services'>Special Services</option>
-                </select>
+                <Select
+                  name='applicableServiceType'
+                  placeholder='Select Category'
+                  options={applicableServiceTypes}
+                  title='Applicable Service Types'
+                  value={applicableServiceType}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='serviceDescription'>
                 <label className='label' htmlFor='serviceDescription'>
@@ -1060,13 +1422,19 @@ class RecordForm extends Component {
                 <input type='text' id='telecom-authorizedByLastName' placeholder='Last Name'/>
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </form>
     );
   };
 }
+
+const mapStateToProps = state => ({
+  items: state.entries.entries,
+  requesting: state.entries.requesting,
+  message: state.message,
+});
 
 const mapDispatchToProps = (dispatch, entry) => {
   return {
