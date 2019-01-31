@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createEntry } from '../../actions/createEntryActions';
 import IS_NOT_READY from '../../helpers/release';
+import {
+  BANDS,
+  SERVICES_AUTHORIZED,
+  CHOICES,
+  STATUSES,
+  EQUIPMENT_CATEGORIES,
+} from '../../constants/categories';
 
 import Select from '../../common/Select';
 import TextArea from '../../common/TextArea';
@@ -10,10 +17,18 @@ import TextArea from '../../common/TextArea';
 class RecordForm extends Component {
   static propTypes = {
     addEntry: PropTypes.func,
+    message: PropTypes.shape({
+      type: PropTypes.string,
+      text: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
     addEntry: () => {},
+    message: {
+      type: '',
+      text: '',
+    },
   }
 
   constructor() {
@@ -132,6 +147,7 @@ class RecordForm extends Component {
       taCertificate,
       assessedByFirstName,
       assessedByLastName,
+      serviceCategory,
     } = this.state;
     const entry = {
       name,
@@ -181,6 +197,7 @@ class RecordForm extends Component {
       taCertificate,
       assessedByFirstName,
       assessedByLastName,
+      serviceCategory,
     };
     const { addEntry } = this.props;
     addEntry(entry);
@@ -200,7 +217,7 @@ class RecordForm extends Component {
       legalPersonName,
       legalPersonEmail,
       operationBand,
-      applicableServiceType,
+      // applicableServiceType,
       serviceAuthorized,
       modulationPermitted,
       transPower,
@@ -236,127 +253,9 @@ class RecordForm extends Component {
       // taCertificate,
       assessedByFirstName,
       assessedByLastName,
+      // serviceCategory,
     } = this.state;
     // TODO: Import datasets from somewhere else
-    const bands = [
-      {
-        id: 'KHz',
-        name: 'KHz',
-      },
-      {
-        id: 'MHz',
-        name: 'MHz',
-      },
-      {
-        id: 'GHz',
-        name: 'GHz',
-      },
-    ];
-    const applicableServiceTypes = [
-      {
-        id: 'ComplimentaryTV',
-        name: 'Complimentary TV Services',
-      },
-      {
-        id: 'ContentProvision',
-        name: 'Content Provision Services',
-      },
-      {
-        id: 'CoreTV',
-        name: 'Core TV Service',
-      },
-      {
-        id: 'emergencySafety',
-        name: 'Emergency and Safety Services',
-      },
-      {
-        id: 'FixedSub',
-        name: 'Fixed Subscriber Services',
-      },
-      {
-        id: 'ISPC',
-        name: 'ISPC',
-      },
-      {
-        id: 'MNC',
-        name: 'MNC',
-      },
-      {
-        id: 'MNO',
-        name: 'MNO Services',
-      },
-      {
-        id: 'MobileSub',
-        name: 'Mobile Subscriber Services',
-      },
-      {
-        id: 'NSPC',
-        name: 'NSPC',
-      },
-      {
-        id: 'PremiumSub',
-        name: 'Premium Subscriber Services',
-      },
-      {
-        id: 'Special',
-        name: 'Special Services',
-      },
-    ];
-    const servicesAuthorized = [
-      {
-        id: 'DAB',
-        name: 'DAB',
-      },
-      {
-        id: 'DigitalTV',
-        name: 'Digital TV',
-      },
-      {
-        id: 'MobileTel2g',
-        name: 'Mobile Telephony (2G)',
-      },
-      {
-        id: 'MobileTel3g',
-        name: 'Mobile Telephony (3G)',
-      },
-      {
-        id: 'MobileTelLTE',
-        name: 'Mobile Telephony (LTE)',
-      },
-      {
-        id: 'Microwave',
-        name: 'Microwave',
-      },
-      {
-        id: 'TwoWayRadio',
-        name: 'Two Way Radio',
-      },
-    ];
-    const choices = [
-      {
-        id: '1',
-        name: 'Choice 1',
-      },
-      {
-        id: '2',
-        name: 'Choice 2',
-      },
-      {
-        id: '3',
-        name: 'Choice 3',
-      },
-    ];
-    const statuses = [
-      {
-        id: 'approved',
-        name: 'Approved',
-      },
-      {
-        id: 'rejected',
-        name: 'Rejected',
-      },
-    ];
-    const equipmentCategories = [{ id: 'stb', name: 'STB' }, { id: 'idtv', name: 'IDTV' }];
     // TODO: Work on Edit Feature
     const edit = !IS_NOT_READY('edit') && <button type='button' className='edit'>Edit</button>;
 
@@ -516,9 +415,9 @@ class RecordForm extends Component {
               <div className='band'>
                 { /* eslint-disable */ }
                 <Select
-                  name='operationband'
+                  name='operationBand'
                   placeholder='Select Band'
-                  options={bands}
+                  options={BANDS}
                   title='Band of Operation'
                   value={operationBand}
                   handleChange={this.handleChange}
@@ -526,9 +425,9 @@ class RecordForm extends Component {
               </div>
               <div className='service'>
                 <Select
-                  name='authService'
+                  name='serviceAuthorized'
                   placeholder='Select a Service'
-                  options={servicesAuthorized}
+                  options={SERVICES_AUTHORIZED}
                   title='Authorized Services'
                   value={serviceAuthorized}
                   handleChange={this.handleChange}
@@ -538,7 +437,7 @@ class RecordForm extends Component {
                 <Select
                   name='modulationPermitted'
                   placeholder='Select a Category'
-                  options={choices}
+                  options={CHOICES}
                   title='Modulation Permitted'
                   value={modulationPermitted}
                   handleChange={this.handleChange}
@@ -591,7 +490,6 @@ class RecordForm extends Component {
                     onChange={this.handleChange}
                   />
                 </label>
-                <input type='text' id='transmitLocation' />
               </div>
               <div className='stlFrequency'>
                 <label className='label' htmlFor='stlFrequency'>
@@ -690,7 +588,7 @@ class RecordForm extends Component {
                   type='text'
                   className='value'
                   placeholder='Last Name'
-                  name='assignedByLastName'
+                  name='authorizedByLastName'
                   value={authorizedByLastName}
                   onChange={this.handleChange}
                 />
@@ -718,7 +616,7 @@ class RecordForm extends Component {
               <div className='status'>
                 <Select
                   name='status'
-                  options={statuses}
+                  options={STATUSES}
                   placeholder='Status'
                   title='Status'
                   value={status}
@@ -753,7 +651,7 @@ class RecordForm extends Component {
                 <Select
                   name='equipmentCategory'
                   placeholder='Equipment Category'
-                  options={equipmentCategories}
+                  options={EQUIPMENT_CATEGORIES}
                   title='Equipment Category'
                   value={equipmentCategory}
                   handleChange={this.handleChange}
@@ -825,12 +723,14 @@ class RecordForm extends Component {
                 <input
                   type='text'
                   name='applicantAddressLine1'
+                  placeholder='Address Line 1'
                   value={applicantAddressLine1}
                   onChange={this.handleChange}
                 />
                 <input
                   type='text'
                   className='value'
+                  placeholder='Address Line 2'
                   name='applicantAddressLine2'
                   value={applicantAddressLine2}
                   onChange={this.handleChange}
@@ -838,6 +738,7 @@ class RecordForm extends Component {
                 <input
                   type='text'
                   className='value'
+                  placeholder='City'
                   name='applicantCity'
                   value={applicantCity}
                   onChange={this.handleChange}
@@ -845,6 +746,7 @@ class RecordForm extends Component {
                 <input
                   type='text'
                   className='value'
+                  placeholder='State'
                   name='applicantState'
                   value={applicantState}
                   onChange={this.handleChange}
@@ -852,6 +754,7 @@ class RecordForm extends Component {
                 <input
                   type='text'
                   className='value'
+                  placeholder='Postal Address'
                   name='applicantPostal'
                   value={applicantPostal}
                   onChange={this.handleChange}
@@ -859,6 +762,7 @@ class RecordForm extends Component {
                 <input
                   type='text'
                   className='value'
+                  placeholder='Country'
                   name='applicantCountry'
                   value={applicantCountry}
                   onChange={this.handleChange}
@@ -909,21 +813,20 @@ class RecordForm extends Component {
               </div>
             </div>
           </div>
-          <div className='numbering section'>
+          {/* <div className='numbering section'>
             <div className='title'>
               <span>Numbering</span>
             </div>
             <div className='details'>
-              {/* TBD */}
               <div className='serviceCategory'>
-                <label className='label' htmlFor='serviceCategory'>
-                  Service Category
-                </label>
-                <select name='serviceCategory' id='serviceCategory'>
-                  <option value='Broadcasting'>Broadcasting</option>
-                  <option value='Telecom'>Telecommunications</option>
-                  <option value='Postal'>Postal</option>
-                </select>
+                <Select
+                  name='serviceCategory'
+                  placeholder='Select Band'
+                  options={serviceCategories}
+                  title='Service Category'
+                  value={serviceCategory}
+                  handleChange={this.handleChange}
+                />
               </div>
               <div className='numberType'>
                 <label className='label' htmlFor='numberType'>
@@ -1519,13 +1422,19 @@ class RecordForm extends Component {
                 <input type='text' id='telecom-authorizedByLastName' placeholder='Last Name'/>
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </form>
     );
   };
 }
+
+const mapStateToProps = state => ({
+  items: state.entries.entries,
+  requesting: state.entries.requesting,
+  message: state.message,
+});
 
 const mapDispatchToProps = (dispatch, entry) => {
   return {
