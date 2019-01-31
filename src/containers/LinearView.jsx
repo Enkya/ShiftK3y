@@ -10,22 +10,19 @@ const createItems = items => (
       </div>
       <div className='summary'>
         <div className='name'>
-          {item.company}
+          {item.name}
         </div>
         <div className='category'>
-          {item.category}
+          {item.location}
         </div>
         <div className='services'>
-          {item.services}
+          {item.postal}
         </div>
         <div className='status'>
-          {item.status}
+          {item.country}
         </div>
         <div className='resource'>
-          {item.resource}
-        </div>
-        <div className='report'>
-          <a href={item.report}>Download</a>
+          {item.tech_person_name}
         </div>
       </div>
     </div>

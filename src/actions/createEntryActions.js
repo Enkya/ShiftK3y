@@ -51,7 +51,7 @@ export const createEntrySuccess = entry => (
 export const createEntry = entry => (
   (dispatch) => {
     dispatch(createEntryRequest());
-    const url = `${config.API_BASE_URL}/posts`;
+    const url = `${config.API_BASE_URL}/companies`;
     return axios.post(url, entry)
       .then(() => {
         dispatch(createEntrySuccess(entry));

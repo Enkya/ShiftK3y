@@ -52,9 +52,9 @@ export const fetchEntriesSuccess = entries => (
 export const fetchEntries = () => (
   (dispatch) => {
     dispatch(fetchEntriesRequest());
-    return axios.get(`${config.API_BASE_URL}/posts`)
+    return axios.get(`${config.API_BASE_URL}/companies`)
       .then((response) => {
-        const data = IS_NOT_READY('API_ENDPOINT') ? response.data.splice(0, 5) : response.data;
+        const data = IS_NOT_READY('API_ENDPOINT') ? response.data.splice(0, 5) : response.data.data;
         dispatch(fetchEntriesSuccess(data));
       })
       .catch((error) => { dispatch(fetchEntriesFailure(error)); });

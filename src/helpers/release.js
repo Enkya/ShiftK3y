@@ -2,7 +2,6 @@ const NOT_READY = [
   'ContentHeader',
   'entryCounter',
   'PersonalActions',
-  'API_ENDPOINT',
   'edit',
 ];
 

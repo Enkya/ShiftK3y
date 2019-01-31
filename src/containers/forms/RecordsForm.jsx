@@ -593,7 +593,7 @@ class RecordForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div className='spectrum-fullReport'>
+              {/* <div className='spectrum-fullReport'>
                 <label className='label' htmlFor='spectrumFullReport'>
                   Full Report
                 </label>
@@ -604,7 +604,7 @@ class RecordForm extends Component {
                   name='spectrumFullReport'
                   onChange={this.handleChange}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='typeApproval section'>
@@ -768,7 +768,7 @@ class RecordForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div className='typeApproval-fullReport'>
+              {/* <div className='typeApproval-fullReport'>
                 <label className='label' htmlFor='typeApproval-fullReport'>
                   Full Report
                 </label>
@@ -778,8 +778,8 @@ class RecordForm extends Component {
                   name='typeApprovalFullReport'
                   onChange={this.handleChange}
                 />
-              </div>
-              <div className='taCertificate'>
+              </div> */}
+              {/* <div className='taCertificate'>
                 <label className='label' htmlFor='taCertificate'>
                   TA Certificate
                 </label>
@@ -789,7 +789,7 @@ class RecordForm extends Component {
                   name='taCertificate'
                   onChange={this.handleChange}
                 />
-              </div>
+              </div> */}
               <div className='assessedBy'>
                 <label className='label' htmlFor='assessedBy'>
                   Assessed By
