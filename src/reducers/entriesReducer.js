@@ -44,6 +44,7 @@ const entries = (state = initialState.entries, action) => {
   case CREATE_ENTRY_REQUEST:
     return {
       ...state,
+      requesting: true,
       message: {
         type: 'info',
         text: 'Creating ...',
@@ -53,6 +54,7 @@ const entries = (state = initialState.entries, action) => {
     return {
       ...state,
       error: action.error,
+      requesting: false,
       message: {
         type: 'error',
         text: action.error.response ? action.error.response.data.message : 'An error has occurred',
@@ -61,6 +63,7 @@ const entries = (state = initialState.entries, action) => {
   case CREATE_ENTRY_SUCCESS: {
     return {
       ...state,
+      requesting: false,
       entries: [...state.entries, action.entry],
       message: {
         type: 'success',
