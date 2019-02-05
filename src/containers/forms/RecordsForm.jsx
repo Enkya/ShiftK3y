@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
+
 import { createEntry } from '../../actions/createEntryActions';
 import IS_NOT_READY from '../../helpers/release';
 import {
@@ -13,6 +15,9 @@ import {
 
 import Select from '../../common/Select';
 import TextArea from '../../common/TextArea';
+
+import { getMessage } from '../../selectors';
+
 
 class RecordForm extends Component {
   static propTypes = {
@@ -40,6 +45,19 @@ class RecordForm extends Component {
 
   componentWillMount() {
     this.resetState();
+  }
+
+  /**
+   * @function componentDidUpdate
+   * @summary clears state if last request successfull
+   * @param {Object} prevProps
+   */
+  componentDidUpdate(prevProps) {
+    const { message } = prevProps;
+    const { message: newMessage } = this.props;
+    if (message.type !== newMessage.type && newMessage.type === 'success') {
+      this.resetState();
+    }
   }
 
   handleChange = (event) => {
@@ -1430,10 +1448,8 @@ class RecordForm extends Component {
   };
 }
 
-const mapStateToProps = state => ({
-  items: state.entries.entries,
-  requesting: state.entries.requesting,
-  message: state.message,
+const mapStateToProps = createStructuredSelector({
+  message: getMessage,
 });
 
 const mapDispatchToProps = (dispatch, entry) => {
@@ -1444,4 +1460,4 @@ const mapDispatchToProps = (dispatch, entry) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(RecordForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RecordForm);
