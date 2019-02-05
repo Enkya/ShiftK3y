@@ -5,13 +5,10 @@ import {
   Switch,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { createStructuredSelector } from 'reselect';
 
 import Auth from './Auth';
 import NotFoundPage from './NotFound';
 
-import makeSelectUserProfile from '../selectors';
 import Home from './Home';
 
 /**
@@ -28,16 +25,4 @@ const Router = () => (
     </Switch>
   </BrowserRouter>);
 
-const mapStateToProps = createStructuredSelector({
-  profile: makeSelectUserProfile(),
-});
-
-Router.propTypes = {
-  profile: PropTypes.shape({}),
-};
-
-Router.defaultProps = {
-  profile: {},
-};
-
-export default connect(mapStateToProps)(Router);
+export default connect()(Router);

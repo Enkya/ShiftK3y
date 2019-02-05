@@ -1,10 +1,14 @@
 import { createSelector } from 'reselect';
-import initialState from '../reducers/initialState';
 
-const selectUserProfile = () => initialState.userProfile;
+const selectUserProfile = state => state.userProfile;
 
-const makeSelectUserProfile = () => createSelector(
-  selectUserProfile, userInfoState => userInfoState.roles,
+const getEntriesRequesting = state => state.entries.requesting;
+
+export const makeSelectUserProfile = createSelector(
+  selectUserProfile, userInfoState => userInfoState.info,
 );
 
-export default makeSelectUserProfile;
+
+export const getUpdateLoader = createSelector(
+  [getEntriesRequesting], entriesRequesting => entriesRequesting || false,
+);
