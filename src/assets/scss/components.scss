@@ -98,3 +98,19 @@
    to { left: 110%; width: 10%;}
   }
 }
+
+.text {
+  font-weight: normal;
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.text__btn--more--less {
+  background: none;
+  padding: 0 auto;
+  border: none;
+  font: inherit;
+  color: $primary;
+  cursor: pointer;
+  outline: none;
+}

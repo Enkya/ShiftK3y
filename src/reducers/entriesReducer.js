@@ -53,7 +53,6 @@ const entries = (state = initialState.entries, action) => {
   case CREATE_ENTRY_FAILURE:
     return {
       ...state,
-      error: action.error,
       requesting: false,
       message: {
         type: 'error',
