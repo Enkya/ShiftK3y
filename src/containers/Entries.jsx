@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { fetchEntries } from '../actions/fetchEntriesActions';
 
 import EntriesLoader from '../components/loaders/EntriesLoader';
 import LinearView from './LinearView';
+import { getEntries, getEntriesRequesting } from '../selectors';
 
 /**
  * @name Entries
@@ -39,9 +41,9 @@ class Entries extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  items: state.entries.entries,
-  requesting: state.entries.requesting,
+const mapStateToProps = createStructuredSelector({
+  items: getEntries,
+  requesting: getEntriesRequesting,
 });
 
 const mapDispatchToProps = dispatch => ({

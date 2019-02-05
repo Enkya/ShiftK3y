@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-// import { createStructuredSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 
 import ContentHeader from '../components/headers/ContentHeader';
 import TopNav from '../components/headers/TopNav';
@@ -74,10 +74,10 @@ const Home = (props) => {
   );
 };
 
-const mapStateToProps = state => ({
-  profile: makeSelectUserProfile(state),
-  updating: getUpdateLoader(state),
-  message: getMessage(state),
+const mapStateToProps = createStructuredSelector({
+  profile: makeSelectUserProfile,
+  updating: getUpdateLoader,
+  message: getMessage,
 });
 
 Home.propTypes = {

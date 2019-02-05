@@ -3,7 +3,7 @@
     min-width: 20rem;
     margin-left: -10rem;
     color: #fff;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     position: fixed;
     z-index: 1;
@@ -44,11 +44,11 @@
   }
   
   .snackbar.error {
-    background-color: red;
+    background-color: $failure;
   }
   
   .snackbar.show.error {
-    background-color: red;
+    background-color: $failure;
   }
   
   .close-svg {
@@ -60,7 +60,7 @@
   }
   
   .snackbar__button, {
-    background-color: red;
+    background-color: $failure;
     border: 0;
   }
   
