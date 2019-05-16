@@ -6,6 +6,7 @@ import {
   SPECTRUM,
 } from '../constants/roles';
 import NewEntry from '../containers/NewEntry';
+import CompanyDetails from '../containers/CompanyDetails';
 
 const pageInfo = {
   pages: [
@@ -13,6 +14,11 @@ const pageInfo = {
       title: 'All Entries',
       url: '/',
       component: Entries,
+    },
+    {
+      title: 'Company Details',
+      url: '/companies/:id',
+      component: CompanyDetails,
     },
     {
       title: 'Dashboard',
