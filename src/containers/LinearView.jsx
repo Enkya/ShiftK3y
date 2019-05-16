@@ -28,7 +28,13 @@ class LinearView extends Component {
         </div>
         <div className='summary'>
           <div className='name'>
-            <Link to='/'>{item.name}</Link>
+            <Link
+              to={{
+                pathname: `/companies/${item.id}`,
+              }}
+            >
+              {item.name}
+            </Link>
           </div>
           <div className='category'>
             {item.location}
