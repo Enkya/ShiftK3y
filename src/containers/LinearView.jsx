@@ -55,13 +55,10 @@ class LinearView extends Component {
 
   renderPreview = (event) => {
     event.preventDefault();
-    console.log(event);
-    console.log('test');
   };
 
   onKeyPressHandler = (event) => {
     event.preventDefault();
-    console.log(event);
   };
 
   render() {

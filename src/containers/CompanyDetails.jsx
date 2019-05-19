@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 
-import { fetchDetails } from '../actions/fetchDetailsActions';
+import { fetchCompanyDetails } from '../actions/fetchCompanyDetails';
 
 import { getMessage } from '../selectors';
 
@@ -26,8 +26,8 @@ class CompanyDetails extends Component {
   }
 
   componentWillMount() {
-    const { fetchSingleCompanyDetails } = this.props;
-    fetchSingleCompanyDetails();
+    const { fetchSingleCompanyDetails, match } = this.props;
+    fetchSingleCompanyDetails(match.params.id);
   }
 
   handleChange = (event) => {
@@ -48,8 +48,8 @@ const mapStateToProps = createStructuredSelector({
   message: getMessage,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchSingleCompanyDetails: () => dispatch(fetchDetails()),
+const mapDispatchToProps = (dispatch, props) => ({
+  fetchSingleCompanyDetails: () => dispatch(fetchCompanyDetails(props.match.params.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CompanyDetails);
