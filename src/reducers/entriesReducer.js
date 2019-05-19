@@ -11,6 +11,9 @@ import {
   EDIT_ENTRY_REQUEST,
   EDIT_ENTRY_SUCCESS,
   EDIT_ENTRY_FAILURE,
+  FETCH_COMPANY_DETAILS_FAILURE,
+  FETCH_COMPANY_DETAILS_SUCCESS,
+  FETCH_COMPANY_DETAILS_REQUEST,
 } from '../types';
 import initialState from './initialState';
 
@@ -118,6 +121,27 @@ const entries = (state = initialState.entries, action) => {
         ? action.error.response.data.message
         : 'An error has occured while completing your request.',
     };
+  case FETCH_COMPANY_DETAILS_REQUEST:
+    return {
+      ...state,
+      requesting: true,
+    };
+  case FETCH_COMPANY_DETAILS_FAILURE:
+    return {
+      ...state,
+      requesting: false,
+      error: action.error,
+    };
+  case FETCH_COMPANY_DETAILS_SUCCESS: {
+    const updatedEntries = state.entries.map(entry => (
+      entry.id !== action.entries.company.id ? entry : action.entries
+    ));
+    return {
+      ...state,
+      requesting: false,
+      entries: updatedEntries,
+    };
+  }
   default:
     return state;
   }

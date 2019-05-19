@@ -52,9 +52,9 @@ export const fetchCompanyDetailsSuccess = entries => (
 export const fetchCompanyDetails = companyId => (
   (dispatch) => {
     dispatch(fetchCompanyDetailsRequest());
-    return axios.get(`${config.API_BASE_URL}/companies/${companyId}/details`)
+    return axios.get(`${config.API_BASE_URL}/companies/${companyId}`)
       .then((response) => {
-        dispatch(fetchCompanyDetailsSuccess(response.data.data));
+        dispatch(fetchCompanyDetailsSuccess(response.data));
       })
       .catch((error) => { dispatch(fetchCompanyDetailsFailure(error)); });
   }
