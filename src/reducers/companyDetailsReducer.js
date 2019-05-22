@@ -6,14 +6,14 @@ import {
 import initialState from './initialState';
 
 /**
-* @function entries
-* entries reducer
+* @function entry
+* entry reducer
 *
 * @param {Object} state companyDetails initial state
 * @param {Object} action
-* @returns {Object} entries state
+* @returns {Object} entry state
 */
-const companyDetails = (state = initialState.entries, action) => {
+const companyDetails = (state = initialState.entry, action) => {
   switch (action.type) {
   case FETCH_COMPANY_DETAILS_REQUEST:
     return {
@@ -27,9 +27,6 @@ const companyDetails = (state = initialState.entries, action) => {
       error: action.error,
     };
   case FETCH_COMPANY_DETAILS_SUCCESS: {
-    const updatedEntries = state.entries.map(entry => (
-      entry.id !== action.company.id ? entry : action.entry
-    ));
     return {
       ...state,
       updating: false,
@@ -37,7 +34,7 @@ const companyDetails = (state = initialState.entries, action) => {
         type: 'success',
         text: 'Entry edited successfully.',
       },
-      entries: updatedEntries,
+      entry: action.entry,
     };
   }
   default:

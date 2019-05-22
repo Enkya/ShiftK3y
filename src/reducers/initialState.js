@@ -15,6 +15,7 @@ const initialState = {
     requesting: false,
     entries: [],
   },
+  entry: {},
 };
 
 export default initialState;

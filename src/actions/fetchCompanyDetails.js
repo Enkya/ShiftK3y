@@ -36,10 +36,10 @@ export const fetchCompanyDetailsFailure = error => (
  * @param {Object} entries - object with info on fetchd entries
  * @return {Object} {{type: FETCH_DETAILS_SUCCESS, bool: bool}}
  */
-export const fetchCompanyDetailsSuccess = entries => (
+export const fetchCompanyDetailsSuccess = entry => (
   {
     type: FETCH_COMPANY_DETAILS_SUCCESS,
-    entries,
+    entry,
   }
 );
 
