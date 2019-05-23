@@ -29,11 +29,7 @@ const companyDetails = (state = initialState.entry, action) => {
   case FETCH_COMPANY_DETAILS_SUCCESS: {
     return {
       ...state,
-      updating: false,
-      message: {
-        type: 'success',
-        text: 'Entry edited successfully.',
-      },
+      requesting: false,
       entry: action.entry,
     };
   }

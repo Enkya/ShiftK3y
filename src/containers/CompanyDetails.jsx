@@ -5,7 +5,8 @@ import { createStructuredSelector } from 'reselect';
 
 import { fetchCompanyDetails } from '../actions/fetchCompanyDetails';
 
-import { getMessage } from '../selectors';
+import { getEntry, getEntryRequesting } from '../selectors';
+import Section from './Section';
 
 
 class CompanyDetails extends Component {
@@ -19,10 +20,14 @@ class CompanyDetails extends Component {
       path: PropTypes.string,
       url: PropTypes.string,
     }).isRequired,
+    entry: PropTypes.shape({}),
+    requesting: PropTypes.bool,
   }
 
   static defaultProps = {
     fetchSingleCompanyDetails: () => {},
+    entry: {},
+    requesting: true,
   }
 
   componentWillMount() {
@@ -34,18 +39,32 @@ class CompanyDetails extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  createSections = item => (
+    Object.keys(item).map(obj => (
+      <Section
+        key={obj}
+        sectionName={obj}
+        sectionDetails={item[obj]}
+      />
+    ))
+  );
+
   render() {
-    const { match } = this.props;
+    const { requesting, entry } = this.props;
     return (
-      <div>
-        {match.params.id}
+      <div
+        className='card'
+      >
+        {requesting && <div>Loading</div>}
+        {this.createSections(entry)}
       </div>
     );
   }
 }
 
 const mapStateToProps = createStructuredSelector({
-  message: getMessage,
+  entry: getEntry,
+  requesting: getEntryRequesting,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

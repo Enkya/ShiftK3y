@@ -8,6 +8,9 @@ const entriesMessage = state => state.entries.message;
 
 const selectEntries = state => state.entries;
 
+export const getEntry = state => state.entry.entry;
+export const getEntryRequesting = state => state.entry.requesting;
+
 export const makeSelectUserProfile = createSelector(
   selectUserProfile, userInfoState => userInfoState.info,
 );
